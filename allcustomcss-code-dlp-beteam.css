@@ -3,7 +3,6 @@
     border-left: 10px solid #F58423;
     border-radius: 2px;
     margin-bottom: 2.4rem;
-    font-size: 16px !important;
   }
 
   .ceg-learnmore-txt {
@@ -37,7 +36,6 @@
     text-align: left;
     vertical-align: middle;
     color: #73a745 !important;
-    font-size: 16px !important;
   }
 
   .ceg-quicktip-underline {
@@ -49,7 +47,6 @@
     overflow-wrap: break-word;
     background-color: #fafafa;
     padding: 1em;
-    font-size: 16px !important;
   }
 
   .ceg-danger-title {
@@ -60,7 +57,6 @@
     text-align: left;
     vertical-align: middle;
     color: #df0000 !important;
-    font-size: 16px !important;
   }
 
   .ceg-danger-underline {
@@ -72,7 +68,6 @@
     overflow-wrap: break-word;
     background-color: #fafafa;
     padding: 1em;
-    font-size: 16px !important;
   }
 
   .ceg-note-block {
@@ -90,7 +85,6 @@
     text-align: left;
     vertical-align: middle;
     color: #484848 !important;
-    font-size: 16px !important;
   }
 
   .ceg-note-underline {
@@ -102,7 +96,6 @@
     overflow-wrap: break-word;
     background-color: #fafafa;
     padding: 1em;
-    font-size: 16px !important;
   }
 
   .ceg-alert-block {
@@ -120,7 +113,6 @@
     text-align: left;
     vertical-align: middle;
     color: #e3c447 !important;
-    font-size: 16px !important;
   }
 
   .ceg-alert-underline {
@@ -132,7 +124,6 @@
     overflow-wrap: break-word;
     background-color: #fafafa;
     padding: 1em;
-    font-size: 16px !important;
   }
 
   .ceg-index-block{
@@ -153,7 +144,6 @@
     font-weight: bold !important;
     text-align: left;
     vertical-align: middle;
-    font-size: 16px !important;
   }
 
   .ceg-index-ul{
@@ -161,7 +151,6 @@
   }
 
   .ceg-index-ul li{
-    font-size: 16px !important;
     margin-right: 1em;
     line-height: 1.5;
   }
