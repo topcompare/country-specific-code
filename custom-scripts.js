@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+	
 // Adapt the loan duration for low amounts (<5000 EUR)
 var loanTenureUpdate = function(element) {
 	var target = element.currentTarget;
@@ -12,8 +14,7 @@ $("#loan-amount").change(loanTenureUpdate);
 $("#loan-slider").change(loanTenureUpdate);
 
 // Change logos on the front page
-document.addEventListener("DOMContentLoaded", function() {
-if (window.location.pathname == "/fr" > -1 || window.location.pathname == "/nl" > -1 ) {
+if (window.location.pathname == "/fr" || window.location.pathname == "/nl" ) {
     $(".cc-provider__list").find("img").eq(4).attr("src", "/s3/belgium/topcompare.be/production/be/images/providerLogos/kbc.png");
     $(".cc-provider__list").find("img").eq(8).attr("src", "/s3/belgium/topcompare.be/production/be/images/providerLogos/bpostBank.png");
     $(".cc-provider__list a[href='/fr/fournisseurs/bnp-paribas-fortis']").attr("href", "/fr/fournisseurs/kbc");
@@ -23,4 +24,5 @@ if (window.location.pathname == "/fr" > -1 || window.location.pathname == "/nl" 
     $(".cc-provider__list").find("img").eq(4).prop("alt", "KBC");
     $(".cc-provider__list").find("img").eq(8).prop("alt", "bpost bank");
 }
+	
 }, false);
