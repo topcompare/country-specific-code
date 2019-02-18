@@ -21,7 +21,6 @@ if (window.location.pathname == "/fr" > -1 || window.location.pathname == "/nl" 
     $(".cc-provider__list a[href='/nl/aanbieders/bnp-paribas-fortis']").attr("href", "/nl/aanbieders/kbc");
     $(".cc-provider__list a[href='/nl/aanbieders/elantis']").attr("href", "/nl/aanbieders/bpost-bank");
     $(".cc-provider__list").find("img").eq(4).prop("alt", "KBC");
-    $(".cc-provider__list").find("img").eq(8).prop("alt", "bpost bank")
+    $(".cc-provider__list").find("img").eq(8).prop("alt", "bpost bank");
 }
-}, false)
-
+}, false);
