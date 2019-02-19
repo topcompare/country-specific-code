@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 	
 // Adapt the loan duration for low amounts (<5000 EUR)
+	/*
 var loanTenureUpdate = function(element) {
 	var target = element.currentTarget;
 	var loanAmount = target.value;
@@ -12,7 +13,7 @@ var loanTenureUpdate = function(element) {
 };
 $("#loan-amount").change(loanTenureUpdate);
 $("#loan-slider").change(loanTenureUpdate);
-
+*/
 // Change logos on the front page
 if (window.location.pathname == "/fr" || window.location.pathname == "/nl" ) {
     $(".cc-provider__list").find("img").eq(4).attr("src", "/s3/belgium/topcompare.be/production/be/images/providerLogos/kbc.png");
