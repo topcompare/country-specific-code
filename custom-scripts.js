@@ -9,10 +9,29 @@ function readCookie(name) {
   return null;
 }
 
+// Send email capture form to GetSiteControl
+function registerNewsletterToWidget() {
+	var analyticsID = readCookie("analytics_id");
+	var emailAddress = document.forms["newsletterForm"].elements["email"].value;
+	var data = '{"form_info":{"form_uid":"fbfbec69-c00d-4b01-9e3c-10a08a168d75","form_page":1,"form_pages":1},"form":{"email":[{"value":"'+emailAddress+'"}]},"user":{"analytics_id":"'+analyticsID+'"},"widget":379802,"location":"https://www.topcompare.be/fr/contact"}'; 
+
+	if (/\S+@\S+\.\S+/.test(emailAddress)) {
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "https://app.getsitecontrol.com/api/v1/submit?ts=1549994397112", true);
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send(data);
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	// Add analytics_id to GetSiteControl widget data submitted
 	var analyticsID = readCookie("analytics_id");
 	_gscq.push(['user','analytics_id', analyticsID]);
+	
+	// Override the Salesforce email capture form
+	if (typeof document.forms['newsletterForm'] != 'undefined') {
+	    document.forms['newsletterForm'].onsubmit = registerNewsletterToWidget;
+	}
 	
 	// Adapt the loan duration for low amounts (<5000 EUR)
 		/*
