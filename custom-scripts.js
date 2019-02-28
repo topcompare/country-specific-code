@@ -13,7 +13,8 @@ function readCookie(name) {
 function registerNewsletterToWidget() {
 	var analyticsID = readCookie("analytics_id");
 	var emailAddress = document.forms["newsletterForm"].elements["email"].value;
-	var data = '{"form_info":{"form_uid":"fbfbec69-c00d-4b01-9e3c-10a08a168d75","form_page":1,"form_pages":1},"form":{"email":[{"value":"'+emailAddress+'"}]},"user":{"analytics_id":"'+analyticsID+'"},"widget":379802,"location":"https://www.topcompare.be/fr/contact"}'; 
+	var location = window.location.href;
+	var data = '{"form_info":{"form_uid":"fbfbec69-c00d-4b01-9e3c-10a08a168d75","form_page":1,"form_pages":1},"form":{"email":[{"value":"'+emailAddress+'"}]},"user":{"analytics_id":"'+analyticsID+'"},"widget":379802,"location":"'+location+'"}'; 
 
 	if (/\S+@\S+\.\S+/.test(emailAddress)) {
 		var xhr = new XMLHttpRequest();
