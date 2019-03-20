@@ -1,39 +1,56 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-  <meta charset="utf-8">
-  <title></title>
-
 <style type="text/css">
-.column {
-  float: left;
-  width: 33.33%;
-}
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
+
+.column {
+  float: left;
+  width: 40%;
+}
+.btn {
+background-color: #076b9c; /* TC Blue */
+color: white;
+display: block;
+margin: 3px;
+width: 40%;
+ -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.myBtnContainer{
+padding: 5%;
+display: block;
+}
 .wizcontainer {
-  overflow: hidden;
+overflow: hidden;
+padding: 5%;
+vertical-align: top;
+display: block;
 }
 .filterDiv {
+background-color: #076b9c; /* TC Blue */
+color: white;
   float: left;
+margin: 3px;
   display: none; /* Hidden by default */
+ -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
+
 /* The "show" class is added to the filtered elements */
 .show {
   display: block;
 }
 
 .activated {
-  background-color: red
+  background-color: #666;
+  color: white;
+display: block;
 }
-</style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</style>
 
 <script>
 
@@ -48,27 +65,27 @@ var filterValueMap = new Map();
         filterValueMap.set('travel-premium', 'CC_PREMIUM_TRAVEL');
         filterValueMap.set('travel-basic', 'CC_BASIC_TRAVEL');
 
-var allValueObject = filterValueMap.entries();
-  document.write(allValueObject.next().value,"<br>");
-
 $(document).ready(function(){
 
   /*
    set dropdown current value to clicked value according to the value its key has
-   from the filterValueMap
-  */
+   from the filterValueMap  */
 
-  //set new dropdown value after click on the first level filter
-    $("button.btn").click(function(){
-        var fstcat_button = $(this).val();
-        $("#category-dropdown").val(filterValueMap.get(fstcat_button)).change();
+  //set new dropdown value after click on a button
+    $("button").click(function(){
+        var clicked_button = $(this).val();
+        $("#category-dropdown").val(filterValueMap.get(clicked_button)).change();
     });
   });
 
-
   function filterSelection(clicked) {
+if ((clicked != "allrounder") && (clicked != "deferred_payment")) {
+            $(".wizcontainer").show();
+          }
+else {$(".wizcontainer").hide();}
+
             var x = document.getElementsByClassName("filterDiv"); //collects all 2nd step names
-            //if (clicked == "all") clicked = "";
+
             // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
             for (var i = 0; i < x.length; i++) {
 
@@ -91,8 +108,6 @@ $(document).ready(function(){
               if (l2.eq(c).hasClass(clicked)) l2.eq(c).addClass("activated");
             }
   }
-
-
 
   // Show filtered elements
   function w3AddClass(element, name) {
@@ -118,25 +133,7 @@ $(document).ready(function(){
     }
     element.className = arr1.join(" ");
   }
-
-  // Add active class to the current control button (highlight it)
-  /*var btnContainer = document.getElementById("myBtnContainer");
-
-  var btns = btnContainer.getElementsByClassName("btn");
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-    });
-  }*/
-
-
   </script>
-
-</head>
-
-<body>
 
 <div class="row">
 <div class="column">
@@ -154,33 +151,11 @@ $(document).ready(function(){
   <div class="column">
   <div class="wizcontainer">
     <p>What's the best fit?</p>
-    <button class="level2 filterDiv shopping-online" value="shopping-online" onclick="filterSelection('shopping-online')">Online</button>
-    <button class="level2 filterDiv shopping-offline" value="shopping-offline" onclick="filterSelection('shopping-offline')">Offline</button>
-    <button class="level2 filterDiv travel-basic" value="travel-basic" onclick="filterSelection('travel-basic')">Basic Travel</button>
-    <button class="level2 filterDiv travel-premium" value="travel-premium" onclick="filterSelection('travel-premium')">Premium Travel</button>
+    <button class="level2 btn filterDiv shopping-online" value="shopping-online" onclick="filterSelection('shopping-online')">Online</button>
+    <button class="level2 btn filterDiv shopping-offline" value="shopping-offline" onclick="filterSelection('shopping-offline')">Offline</button>
+    <button class="level2 btn filterDiv travel-basic" value="travel-basic" onclick="filterSelection('travel-basic')">Basic Travel</button>
+    <button class="level2 btn filterDiv travel-premium" value="travel-premium" onclick="filterSelection('travel-premium')">Premium Travel</button>
   </div>
   </div>
 
-<div class="column">
-<!-- SLider if required
-<div class="slidecontainer">
- <p>Which amount?</p>
-  <input type="range" min="100" max="9000" value="2000" class="slider" id="credit_card_amount_slider"> -->
-</br>
-<p>currentView is:</script></p>
-
-<div class="top-banner__category" style="">
-  <label class="category-dropdown-label" for="category-dropdown"></label>
-  <select id="category-dropdown" name="category" class="category-dropdown filter-panel-component col-md-6 col-xs-12" data-category-url="test" data-value="CC_PREMIUM_TRAVEL">
-    <option data-min="200" data-max="150000" data-value="7500" data-min-display="200€" data-max-display="150.000€" data-tenure="36" data-tenure-unit-text="mois" data-tenure-unit-key="month" data-category-url="test" value="CC_All-Round-Use">All Round</option>
-    <option data-min="200" data-max="150000" data-value="7500" data-min-display="200€" data-max-display="150.000€" data-tenure="36" data-tenure-unit-text="mois" data-tenure-unit-key="month" data-category-url="test" value="CC_BASIC_TRAVEL">Basic Travel</option>
-    <option data-min="200" data-max="150000" data-value="7500" data-min-display="200€" data-max-display="150.000€" data-tenure="36" data-tenure-unit-text="mois" data-tenure-unit-key="month" data-category-url="test" value="CC_Defpayments">Deferred Payments</option>
-    <option data-min="200" data-max="150000" data-value="7500" data-min-display="200€" data-max-display="150.000€" data-tenure="36" data-tenure-unit-text="mois" data-tenure-unit-key="month" data-category-url="test" value="CC_ONLINE">Online Shopping</option>
-    <option data-min="200" data-max="150000" data-value="7500" data-min-display="200€" data-max-display="150.000€" data-tenure="36" data-tenure-unit-text="mois" data-tenure-unit-key="month" data-category-url="test" value="CC_PREMIUM_TRAVEL">Premium Travel</option>
-  </select>
 </div>
-
-</div>
-</div>
-</div>
-</body>
