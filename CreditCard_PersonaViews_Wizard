@@ -8,6 +8,7 @@
 .column {
   float: left;
   width: 40%;
+display: inline-block;
 }
 .btn {
 background-color: #076b9c; /* TC Blue */
@@ -27,7 +28,7 @@ display: block;
 overflow: hidden;
 padding: 5%;
 vertical-align: top;
-display: block;
+display: none;
 }
 .filterDiv {
 background-color: #076b9c; /* TC Blue */
@@ -66,7 +67,6 @@ var filterValueMap = new Map();
         filterValueMap.set('travel-basic', 'CC_BASIC_TRAVEL');
 
 $(document).ready(function(){
-
   /*
    set dropdown current value to clicked value according to the value its key has
    from the filterValueMap  */
