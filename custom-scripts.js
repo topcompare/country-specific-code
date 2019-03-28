@@ -24,6 +24,8 @@ function registerNewsletterToWidget() {
 	}
 }
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
 	// Add analytics_id to GetSiteControl widget data submitted
 	var analyticsID = readCookie("analytics_id");
@@ -59,5 +61,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	    $(".cc-provider__list").find("img").eq(4).prop("alt", "KBC");
 	    $(".cc-provider__list").find("img").eq(8).prop("alt", "bpost bank");
 	}
+	
+	// make cookie consent bar trackable for a/b tests
+	$(".cookies-apply-button").attr("ga-category", "ab").attr("ga-label", "click").attr("ga-action","Clicked-accept").addClass("btn-trackable");
 	
 }, false);
