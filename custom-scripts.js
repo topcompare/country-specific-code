@@ -35,19 +35,24 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 	
 	// Adapt the loan duration for low amounts (<5000 EUR)
-		/*
+	var lang = document.documentElement.lang;	
 	var loanTenureUpdate = function(element) {
-		var target = element.currentTarget;
-		var loanAmount = target.value;
-		if (window.location.href.indexOf("/pret-personnel") > -1 || window.location.href.indexOf("/persoonlijke-lening") > -1 ) {
-		if (loanAmount <= 5000) $('#loan-tenure').val(24);
+	var target = element.currentTarget;
+	var loanAmount = target.value;
+	if (window.location.href.indexOf("/pret-personnel") > -1 || window.location.href.indexOf("/persoonlijke-lening") > -1 ) {
+		if (loanAmount < 2500) {
+	        if (lang == "nl") { _gscq.push(["show", 388445]); }          
+			else { _gscq.push(["show", 388445]); }
+		}
+		if (loanAmount <= 500) $('#loan-tenure').val(18);
+		else if (loanAmount <= 5000) $('#loan-tenure').val(24);
 		else if (loanAmount > 5000) $('#loan-tenure').val(36);
-	    }
-	    document.getElementById("loan-tenure").dispatchEvent(new Event('change'));
+	}
+	document.getElementById("loan-tenure").dispatchEvent(new Event('change'));
 	};
 	$("#loan-amount").change(loanTenureUpdate);
 	$("#loan-slider").change(loanTenureUpdate);
-	*/
+	
 	// Change logos on the front page
 	if (window.location.pathname == "/fr" || window.location.pathname == "/nl" ) {
 	    $(".cc-provider__list").find("img").eq(4).attr("src", "/s3/belgium/topcompare.be/production/be/images/providerLogos/kbc.png");
