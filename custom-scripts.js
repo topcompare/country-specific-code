@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var loanTenureUpdate = function(element) {
 	var target = element.currentTarget;
 	var loanAmount = target.value;
-	if (window.location.href.indexOf("/pret-personnel") > -1 || window.location.href.indexOf("/persoonlijke-lening") > -1 ) {
+	if (!!document.getElementById("loan-amount")) {
 		if (loanAmount < 2500) {
 	        if (lang == "nl") { _gscq.push(["show", 390737]); }          
 			else { _gscq.push(["show", 388445]); }
