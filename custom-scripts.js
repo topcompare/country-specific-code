@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var loanAmount = target.value;
 	if (!!document.getElementById("loan-amount")) {
 		if (loanAmount < 2500) {
-	        if (lang == "nl") { _gscq.push(["show", 390737]); }          
+	        if (lang == "nl-BE") { _gscq.push(["show", 390737]); }          
 			else { _gscq.push(["show", 388445]); }
 		}
 		if (loanAmount <= 500) $('#loan-tenure').val(18);
