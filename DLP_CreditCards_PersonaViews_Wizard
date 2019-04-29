@@ -1,0 +1,287 @@
+<style>
+    /* --- Style to remove extra padding of the body and other containers outside the Free Content widget -- */
+
+    body>.free-text {
+        background-color: #155072;
+    }
+
+    body .free-text .container>.row {
+        padding: 0;
+    }
+
+    .container .top-banner__category {
+        display: none;
+    }
+
+    body .free-text .container>.col-xs-12 {
+        padding: 0;
+    }
+
+    body>.free-text>.container {
+	    padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
+    body>.free-text>.container>.row>.col-xs-12>.container-fluid {
+        padding-right: 0;
+        padding-left: 16px;
+    }
+
+    /* --- END! -- */
+
+    /* --- GENERAL -- */
+
+    .container-ccwizard {
+        padding: 24px 0 8px 0;
+        background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/04/24120105/be-ccwizard-bgimage-compressed5-952.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position-y: bottom;
+        background-position-x: right;
+        height: 260px;
+    }
+
+    .container-buttons {
+        /* This makes the buttons to aling in just one line */
+        display: flex;
+        justify-content: flex-start;
+        /* ------------------------------------------------ */
+        overflow: auto;
+        white-space: nowrap;
+        margin-left: 0;
+        height: auto;
+    }
+
+    .ccwizard-buttons-normal {
+        display: inline-block;
+        background-color: white;
+        border: 1px solid #979290;
+        border-radius: 3px;
+        box-shadow: inset 0px -4px 0px #DEDCD9;
+        font-size: 16px;
+        font-weight: bold;
+        color: #6C6563;
+        max-width: 128px;
+        min-width: 128px;
+        height: 48px;
+        padding: 12px;
+        margin-right: 16px;
+        margin-bottom: 16px;
+    }
+
+    .ccwizard-buttons-selected {
+        display: block;
+        background-color: #56924B;
+        border: none;
+        border-radius: 3px;
+        box-shadow: inset 0px -4px 0px #56924B;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        max-width: 128px;
+        min-width: 128px;
+        height: 48px;
+        padding: 12px;
+        margin-right: 16px;
+        margin-bottom: 16px;
+    }
+
+    .container-ccwizard p {
+        font-size: 16px !important;
+        font-weight: bold;
+        color: white;
+    }
+
+    .ccwizard-helpicon {
+        font-size: 23px;
+        margin-right: 8px;
+    }
+
+    .title-container-desktop {
+        display: inline-flex;
+        color: white;
+    }
+
+    .title-container-desktop .title {
+        font-size: 24px !important;
+        margin-top: 0;
+    }
+
+    .ccwizard-marginright {
+        display: none;
+        background-color: #155072;
+        border: #155072;
+        width: 16px;
+    }
+
+    .ccwizard-nomarginright {
+        margin-right: 0 !important;
+    }
+
+    /* ----------- MOBILE SPECIFIC ----------- */
+
+    .title-container-mobile {
+        display: none;
+        color: white;
+        margin-bottom: 16px;
+    }
+
+    .container-ccwizard .title-container-mobile .title-mobile {
+        font-size: 16px !important;
+        text-decoration: underline;
+        margin: 0 8px 0 4px;
+    }
+
+    .hide-chevron {
+        display: none;
+    }
+
+
+    /* ----------- MEDIA QUERIES ----------- */
+    @media only screen and (max-device-width : 769px) {
+        .container-ccwizard {
+            background-image: none;
+            height: auto;
+        }
+
+        .ccwizard-helpicon {
+            margin-right: 2px;
+            font-size: 16px;
+        }
+
+        .ccwizard-nomarginright {
+            margin-right: 0 !important;
+        }
+        
+        .ccwizard-marginright {
+            display: block;
+        }
+
+    }
+
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+        /* Styles */
+        .title-container-mobile {
+            display: inline-flex;
+        }
+
+        .hide-chevron {
+            display: block;
+        }
+
+        .title-container-desktop {
+            display: none;
+        }
+
+        .container-ccwizard {
+            background-image: none;
+        }
+    }
+</style>
+
+
+<div class="container-fluid container-ccwizard">
+    <div class="title-container-desktop">
+        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip"></i>
+        <h3 class="title">Help me find the right credit card</h3>
+    </div>
+
+    <div class="title-container-mobile accordion active">
+        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip"></i>
+        <h3 class="title-mobile">Help me find the right credit card</h3><i id="chevron"
+            class="hide-chevron m-cgg-icon--chevron-up"></i>
+    </div>
+
+    <div class="panel" style="display: block;">
+        <div id="wizard-level1">
+            <p>I’m going to use my credit card for:</p>
+            <div id="ccwizard-use-buttons" class="container-buttons">
+                <button class="ccwizard-buttons-normal js-ccwizard-group" wizard-category="shopping" wizard-view="asdf">Shopping</button>
+                <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="all-round" wizard-view="asdf">All-round</button>
+                <button class="ccwizard-buttons-normal js-ccwizard-group" wizard-category="travel" wizard-view="asdf">Travel</button>
+                <button class="ccwizard-buttons-normal js-ccwizard-final ccwizard-nomarginright" wizard-category="defer-pay" wizard-view="asdf">Defer pay</button>
+                <div class="ccwizard-marginright">&emsp;</div>
+            </div>
+        </div>
+
+        <div id="wizard-level2">
+            <div wizard-category="shopping" class="ccwizard-section" style="display: none;">
+                <p>I’m going to be shopping:</p>
+                <div class="container-buttons">
+                    <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="online" wizard-view="asdf">Online</button>
+                    <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="offline" wizard-view="asdf">Offline</button>
+                </div>
+            </div>
+            <div wizard-category="travel" class="ccwizard-section" style="display: none;">
+                <p>Which type of perks do you prefer:</p>
+                <div class="container-buttons">
+                    <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="basic" wizard-view="asdf">Basic</button>
+                    <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="luxury" wizard-view="asdf">Luxury</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Script for hiding and showing depending on what button you select
+    $(".js-ccwizard-final").on("click", function () {
+        if (!$(this.closest("#wizard-level2")).length) {
+            $("#wizard-level2 > .ccwizard-section").hide();
+        }
+        if (!$(this).hasClass("ccwizard-buttons-selected")) {
+            var wizard_category = this.getAttribute("wizard-category");
+            console.log("change results table " + wizard_category);
+        }
+    });
+
+    $(".js-ccwizard-group").on("click", function () {
+        if (!$(this).hasClass("ccwizard-buttons-selected")) {
+            var wizard_category = this.getAttribute("wizard-category");
+            console.log("try to open the container for " + wizard_category);
+            $("#wizard-level2 > .ccwizard-section").hide();
+            $("#wizard-level2 .ccwizard-section[wizard-category='" + wizard_category + "']").fadeIn('3000');
+        }
+    });
+
+    // Script for accordion on mobile
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+
+    // Script for changing the icon
+    $(function () {
+        $(".title-container-mobile").click(function () {
+            $("#chevron").toggleClass("m-cgg-icon--chevron-down");
+            $("#chevron").toggleClass("m-cgg-icon--chevron-up");
+        });
+    });
+
+    // Script for changing the button styles
+    $(".js-ccwizard-group,.js-ccwizard-final").on("click", function () {
+        if (!$(this.closest("#wizard-level2")).length) {
+            $(".container-ccwizard .ccwizard-buttons-normal").removeClass("ccwizard-buttons-selected");
+        } else {
+            $(this).siblings().removeClass("ccwizard-buttons-selected");
+        }
+        $(this).addClass("ccwizard-buttons-selected");
+		var wizard_view = this.getAttribute("wizard-view");
+		console.log("try to load the view called " + wizard_view);
+		$("#category-dropdown").val(wizard_view);
+		$("#category-dropdown").get(0).dispatchEvent(new Event('change'));
+		
+    })
+</script>
