@@ -32,21 +32,21 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	// Adapt the loan duration for low amounts (<5000 EUR)
 	var lang = document.documentElement.lang;	
-	var loanTenureUpdate = function(element) {
-	var target = element.currentTarget;
-	var loanAmount = target.value;
 	var tc_touched = false;
-	if (!!document.getElementById("loan-amount") && !tc_touched) {
-		if (loanAmount < 2500) {
-	        if (lang == "nl-BE") { _gscq.push(["show", 390737]); }          
-			else { _gscq.push(["show", 388445]); }
+	var loanTenureUpdate = function(element) {
+		var target = element.currentTarget;
+		var loanAmount = target.value;
+		if (!!document.getElementById("loan-amount") && !tc_touched) {
+			if (loanAmount < 2500) {
+				if (lang == "nl-BE") { _gscq.push(["show", 390737]); }          
+				else { _gscq.push(["show", 388445]); }
+			}
+			if (loanAmount <= 500) $('#loan-tenure').val(18);
+			else if (loanAmount <= 5000) $('#loan-tenure').val(24);
+			else if (loanAmount < 10000) $('#loan-tenure').val(36);
+			else if (loanAmount >= 10000) $('#loan-tenure').val(48);
 		}
-		if (loanAmount <= 500) $('#loan-tenure').val(18);
-		else if (loanAmount <= 5000) $('#loan-tenure').val(24);
-		else if (loanAmount < 10000) $('#loan-tenure').val(36);
-		else if (loanAmount >= 10000) $('#loan-tenure').val(48);
-	}
-	document.getElementById("loan-tenure").dispatchEvent(new Event('change'));
+		document.getElementById("loan-tenure").dispatchEvent(new Event('change'));
 	};
 	$("#loan-amount").change(loanTenureUpdate);
 	$("#loan-slider").change(loanTenureUpdate);
