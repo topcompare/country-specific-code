@@ -1,3 +1,12 @@
+var highlightEmploymentStatus =
+  '<div class="cgg-global-input--error-notification ng-binding ng-hide" ng-show="showErrorMessage" style="margin-top: -10px; margin-bottom: 10px" id="highlightEmploymentStatus"><span class="cgg-has-error-msg-icn m-cgg js-newsletter-submit-icon m-cgg-icon--warning"></span>' +
+  locales[lang]["highlightEmploymentStatus"] +
+  "</div>";
+var highlightLTV =
+  '<div class="cgg-global-input--error-notification ng-binding ng-hide" ng-show="showErrorMessage" style="margin-top: -10px; margin-bottom: 10px" id="highlightLTV"><span class="cgg-has-error-msg-icn m-cgg js-newsletter-submit-icon m-cgg-icon--warning"></span>' +
+  locales[lang]["highlightLTV"] +
+  "</div>";
+
 function readCookie(name) {
   var nameEQ = name + "=";
   var ca = document.cookie.split(";");
@@ -98,23 +107,22 @@ document.addEventListener("DOMContentLoaded", function() {
 		// Notify for employment special cases
 		if ( window.location.href.indexOf("step/7") > -1 && $("#highlightEmploymentStatus").length == 0 ) {
 			$('select[name="employmentStatus"]').parent().after(highlightEmploymentStatus);
+			if ( /independent|liberal_professional|company_manager/.test($('select[name="employmentStatus"] option:selected').val()) ) {
+				$("#highlightEmploymentStatus").removeClass("ng-hide");
+			} else {
+				$("#highlightEmploymentStatus").addClass("ng-hide");
+			}
 		}
-		if ( /independent|liberal_professional|company_manager/.test($('select[name="employmentStatus"] option:selected').val()) ) {
-			$("#highlightEmploymentStatus").removeClass("ng-hide");
-		} else {
-			$("#highlightEmploymentStatus").addClass("ng-hide");
-		}
-
 		// Notify for LTV > 100%
 		if ( window.location.href.indexOf("step/3") > -1 && $("#highlightLTV").length == 0 ) {
 			$('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
-		}
-		if ( $("input[name=ownFunds]").val() != "" && totalAmount / propertyValue > 1.05 ) {
-			$("#highlightLTV").removeClass("ng-hide");
-			//TODO: store the information in a cookie to pass over to unbounce
-		} else {
-			$("#highlightLTV").addClass("ng-hide");
-		//TODO: remove the information from the above cookie
+			if ( $("input[name=ownFunds]").val() != "" && totalAmount / propertyValue > 1.05 ) {
+				$("#highlightLTV").removeClass("ng-hide");
+				//TODO: store the information in a cookie to pass over to unbounce
+			} else {
+				$("#highlightLTV").addClass("ng-hide");
+			//TODO: remove the information from the above cookie
+			}
 		}
 
 	    // Load results table hacks
@@ -125,8 +133,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	      if (!$("#eligible-products").hasClass("tc-touched") && $(".card-container").length) {
 		for (var i =0; i< $(".card-container").length; i++) {
 		  if($(".card-container").eq(i).find(".product-label:contains('Excl')").length) {
-			$(".card-container").eq(i).find(".banner-title.exclusive").text(locales[lang]["bannerLabel"]);
-			$(".card-container").eq(i).find(".product-label:contains('Exclu')").text(locales[lang]["bannerLabel"]);
+			$(".card-container").eq(i).find(".banner-title.exclusive").text("HypoConnect");
+			$(".card-container").eq(i).find(".product-label:contains('Exclu')").text("HypoConnect");
 			$(".card-container").eq(i).find(".product-label:contains('HypoConnect')").parent().parent().css('background', 'rgba(141, 22, 86, 0.15)');
 		  }else{ 
 		    // make sure the remaining empty span box is not visibile  
