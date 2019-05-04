@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	var loanTenureUpdate = function(element) {
 	var target = element.currentTarget;
 	var loanAmount = target.value;
-	var tc-touched = false;
-	if (!!document.getElementById("loan-amount") && !tc-touched) {
+	var tc_touched = false;
+	if (!!document.getElementById("loan-amount") && !tc_touched) {
 		if (loanAmount < 2500) {
 	        if (lang == "nl-BE") { _gscq.push(["show", 390737]); }          
 			else { _gscq.push(["show", 388445]); }
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	$("#loan-slider").change(loanTenureUpdate);
 	// disable script once user manually inputs the loan duration 
 	$('#loan-tenure').keydown(function() {
- 		tc-touched = true;
+ 		tc_touched = true;
 	});
 	
 	// Change logos on the front page
