@@ -1,6 +1,11 @@
 /*
 SECTION: Set variables and base values
 */
+var lang = "fr";
+if (document.documentElement.lang == "nl-BE") {
+  lang = "nl";
+}
+
 var locales = {
   fr: {
     highlightEmploymentStatus:
@@ -36,11 +41,6 @@ var highlightLTV =
   '<div class="cgg-global-input--error-notification ng-binding ng-hide" ng-show="showErrorMessage" style="margin-top: -10px; margin-bottom: 10px" id="highlightLTV"><span class="cgg-has-error-msg-icn m-cgg js-newsletter-submit-icon m-cgg-icon--warning"></span>' +
   locales[lang]["highlightLTV"] +
   "</div>";
-
-var lang = "fr";
-if (document.documentElement.lang == "nl-BE") {
-  lang = "nl";
-}
 
 function readCookie(name) {
   var nameEQ = name + "=";
