@@ -6,7 +6,7 @@ if (document.documentElement.lang == "nl-BE") {
   lang = "nl";
 }
 
-var locales = {
+var locales2 = {
   fr: {
     highlightEmploymentStatus:
       " Ce statut professionnel a des conditions spéciales pour les taux. Nous afficherons les taux standards mais le courtier sera informé de votre statut afin de vous proposer le meilleur taux.",
@@ -35,11 +35,11 @@ var locales = {
 
 var highlightEmploymentStatus =
   '<div class="cgg-global-input--error-notification ng-binding ng-hide" ng-show="showErrorMessage" style="margin-top: -10px; margin-bottom: 10px" id="highlightEmploymentStatus"><span class="cgg-has-error-msg-icn m-cgg js-newsletter-submit-icon m-cgg-icon--warning"></span>' +
-  locales[lang]["highlightEmploymentStatus"] +
+  locales2[lang]["highlightEmploymentStatus"] +
   "</div>";
 var highlightLTV =
   '<div class="cgg-global-input--error-notification ng-binding ng-hide" ng-show="showErrorMessage" style="margin-top: -10px; margin-bottom: 10px" id="highlightLTV"><span class="cgg-has-error-msg-icn m-cgg js-newsletter-submit-icon m-cgg-icon--warning"></span>' +
-  locales[lang]["highlightLTV"] +
+  locales2[lang]["highlightLTV"] +
   "</div>";
 
 function readCookie(name) {
@@ -81,10 +81,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		var target = element.currentTarget;
 		var loanAmount = target.value;
 		if (!!document.getElementById("loan-amount") && !tc_touched) {
+			/* Show popup to push cross-selling to CC
 			if (loanAmount < 2500) {
 				if (lang == "nl-BE") { _gscq.push(["show", 390737]); }          
 				else { _gscq.push(["show", 388445]); }
-			}
+			}*/
 			if (loanAmount <= 500) $('#loan-tenure').val(18);
 			else if (loanAmount <= 5000) $('#loan-tenure').val(24);
 			else if (loanAmount < 10000) $('#loan-tenure').val(36);
@@ -132,9 +133,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (window.location.href.indexOf("step/4") + window.location.href.indexOf("step/5") + window.location.href.indexOf("step/6") > -1 ) {
 			$("body").addClass("hypoconnect");
 			if ($("#disclaimerHC").length == 0) {
-				$("[ng-switch-when='cgg-headline-description']").after('<span id="disclaimerHC" style="display: block; margin: -10px 0 20px 0">' + locales[lang]["disclaimerTopHC"] + "<br></span>");
+				$("[ng-switch-when='cgg-headline-description']").after('<span id="disclaimerHC" style="display: block; margin: -10px 0 20px 0">' + locales2[lang]["disclaimerTopHC"] + "<br></span>");
 			}
-			$("application-skip-link").text(locales[lang]["disclaimerBottomHC"]);
+			$("application-skip-link").text(locales2[lang]["disclaimerBottomHC"]);
 		} else {
 			$("body").removeClass("hypoconnect");
 		}
@@ -153,10 +154,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			$('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
 			if ( $("input[name=ownFunds]").val() != "" && totalAmount / propertyValue > 1.05 ) {
 				$("#highlightLTV").removeClass("ng-hide");
-				//TODO: store the information in a cookie to pass over to unbounce
 			} else {
 				$("#highlightLTV").addClass("ng-hide");
-			//TODO: remove the information from the above cookie
 			}
 		}
 
@@ -176,13 +175,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		    $(".card-container").eq(i).find(".product-label").get(0).setAttribute("style", "background-color: transparent !important");
 		    // hide the apply click button
 		    $(".card-container").eq(i).find("button").hide();
-		    // remove the eligibility score and text
+		    /* // remove the eligibility score and text
 		    $(".card-container").eq(i).find(".footer-container img").hide();
-		    $(".card-container").eq(i).find(".footer-primary").hide();         
+		    $(".card-container").eq(i).find(".footer-primary").hide(); */        
 		  }
 		}
 		// Add APR/TAEG assumption in the disclaimer
-		$(".cgg-category-disclaimer").html(locales[lang]["disclaimerResultsHC"]);
+		$(".cgg-category-disclaimer").html(locales2[lang]["disclaimerResultsHC"]);
 		// trigger popup if there is not eligible product
 		if ($("#eligible-products").find(".card-holder").children().length == 0 && $('input[name="provider"]:checked').length == 0) {
 		  if (lang == "nl") { _gscq.push(["show", 390380]); }          
