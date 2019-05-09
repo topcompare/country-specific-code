@@ -1,6 +1,5 @@
 <style>
     /* --- Style to remove extra padding of the body and other containers outside the Free Content widget -- */
-
     body>.free-text {
         background-color: #155072;
     }
@@ -9,9 +8,9 @@
         padding: 0;
     }
 
-    .container .top-banner__category {
-        display: none;
-    }
+.container .top-banner__category {
+	display: none;
+}
 
     body .free-text .container>.col-xs-12 {
         padding: 0;
@@ -28,10 +27,7 @@
         padding-left: 16px;
     }
 
-    /* --- END! -- */
-
     /* --- GENERAL -- */
-
     .container-ccwizard {
         padding: 24px 0 8px 0;
         background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/04/24120105/be-ccwizard-bgimage-compressed5-952.jpg');
@@ -120,7 +116,6 @@
     }
 
     /* ----------- MOBILE SPECIFIC ----------- */
-
     .title-container-mobile {
         display: none;
         color: white;
@@ -179,6 +174,102 @@
             background-image: none;
         }
     }
+/* ----------- DLP CUSTOMISATIONS ----------- */
+/* Filter position swap */
+.filter-panel-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.filter-panel-container div:nth-of-type(6)  {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+}
+
+.filter-panel-container hr:nth-of-type(2) {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+}
+
+.filter-panel-container hr {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+/* Remove the first column as it contains the score */
+.metrics>div:nth-of-type(2) {
+	display: none !important;
+}
+
+/* Make top-bar thinner */
+.generic-design .top-banner__category {
+    visibility: hidden !important;
+    height: 1px;
+}
+
+@media (min-width: 992px) {
+    .generic-design .top-banner {
+        height: 50px !important
+    }
+}
+
+@media (max-width: 992px) {
+ /* Make mobile filter button bigger and white */
+    .generic-design .top-banner-icon {
+        font-size: 40px;
+        cursor: pointer;
+        color: white;
+    }
+}
+
+
+/* Style for the table of more details */
+.cc-more-details {
+width: 100%;
+}
+
+.cc-more-details thead {
+font-weight: bold;
+}
+
+.cc-more-details td:nth-child(1) {
+width: 35%;
+}
+
+.cc-more-details td:nth-child(2) {
+width: 15%;
+}
+
+.cc-more-details td:nth-child(3) {
+width: 15%;
+}
+
+.cc-more-details td:nth-child(4) {
+width: 35%;
+}
+
+.cc-more-details tr td {
+border-bottom: dotted 1px grey;
+content: "";
+display: inline-enable;
+vertical-align: middle;
+min-height: 35px;
+}
 </style>
 
 
@@ -226,62 +317,82 @@
 </div>
 
 <script>
-    // Script for hiding and showing depending on what button you select
-    $(".js-ccwizard-final").on("click", function () {
-        if (!$(this.closest("#wizard-level2")).length) {
-            $("#wizard-level2 > .ccwizard-section").hide();
-        }
-        if (!$(this).hasClass("ccwizard-buttons-selected")) {
-            var wizard_category = this.getAttribute("wizard-category");
-            console.log("change results table " + wizard_category);
-        }
-    });
+// Script for adding filter category labels
+function waitForElement(selector, callback){
+    var poller1 = setInterval(function(){
+	$jObject = jQuery(selector);
+	if($jObject.length < 1){
+	    return;
+	}
+	clearInterval(poller1);
+	callback($jObject);
+    },100);
+}
+// Customize the lines in this block
+  waitForElement('label:contains("Filtres")', function() {
+    $('label:contains("Filtres")').hide();
+    $('label:contains("Remise d\'argent")').parent().before("<label>Réduction</label>");
+    $('label:contains("Assurance de voyage")').parent().before("<label>Assurances de voyage</label>");
+    $('label:contains("Assurance achats en ligne")').parent().before("<label>Assurances de base</label>");
+    $('label:contains("Carte de crédit")').parent().before("<label>Type de carte de crédit</label>");
+  });
 
-    $(".js-ccwizard-group").on("click", function () {
-        if (!$(this).hasClass("ccwizard-buttons-selected")) {
-            var wizard_category = this.getAttribute("wizard-category");
-            console.log("try to open the container for " + wizard_category);
-            $("#wizard-level2 > .ccwizard-section").hide();
-            $("#wizard-level2 .ccwizard-section[wizard-category='" + wizard_category + "']").fadeIn('3000');
-        }
-    });
+// Script for hiding and showing depending on what button you select
+$(".js-ccwizard-final").on("click", function () {
+if (!$(this.closest("#wizard-level2")).length) {
+    $("#wizard-level2 > .ccwizard-section").hide();
+}
+if (!$(this).hasClass("ccwizard-buttons-selected")) {
+    var wizard_category = this.getAttribute("wizard-category");
+    console.log("change results table " + wizard_category);
+}
+});
 
-    // Script for accordion on mobile
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+$(".js-ccwizard-group").on("click", function () {
+if (!$(this).hasClass("ccwizard-buttons-selected")) {
+    var wizard_category = this.getAttribute("wizard-category");
+    console.log("try to open the container for " + wizard_category);
+    $("#wizard-level2 > .ccwizard-section").hide();
+    $("#wizard-level2 .ccwizard-section[wizard-category='" + wizard_category + "']").fadeIn('3000');
+}
+});
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
+// Script for accordion on mobile
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+	panel.style.display = "none";
+    } else {
+	panel.style.display = "block";
     }
+});
+}
 
-    // Script for changing the icon
-    $(function () {
-        $(".title-container-mobile").click(function () {
-            $("#chevron").toggleClass("m-cgg-icon--chevron-down");
-            $("#chevron").toggleClass("m-cgg-icon--chevron-up");
-        });
-    });
+// Script for changing the icon
+$(function () {
+$(".title-container-mobile").click(function () {
+    $("#chevron").toggleClass("m-cgg-icon--chevron-down");
+    $("#chevron").toggleClass("m-cgg-icon--chevron-up");
+});
+});
 
-    // Script for changing the button styles
-    $(".js-ccwizard-group,.js-ccwizard-final").on("click", function () {
-        if (!$(this.closest("#wizard-level2")).length) {
-            $(".container-ccwizard .ccwizard-buttons-normal").removeClass("ccwizard-buttons-selected");
-        } else {
-            $(this).siblings().removeClass("ccwizard-buttons-selected");
-        }
-        $(this).addClass("ccwizard-buttons-selected");
-		var wizard_view = this.getAttribute("wizard-view");
-		console.log("try to load the view called " + wizard_view);
-		$("#category-dropdown").val(wizard_view);
-		$("#category-dropdown").get(0).dispatchEvent(new Event('change'));
-		
-    })
+// Script for changing the button styles
+$(".js-ccwizard-group,.js-ccwizard-final").on("click", function () {
+if (!$(this.closest("#wizard-level2")).length) {
+    $(".container-ccwizard .ccwizard-buttons-normal").removeClass("ccwizard-buttons-selected");
+} else {
+    $(this).siblings().removeClass("ccwizard-buttons-selected");
+}
+$(this).addClass("ccwizard-buttons-selected");
+	var wizard_view = this.getAttribute("wizard-view");
+	console.log("try to load the view called " + wizard_view);
+	$("#category-dropdown").val(wizard_view);
+	$("#category-dropdown").get(0).dispatchEvent(new Event('change'));
+
+})
 </script>
