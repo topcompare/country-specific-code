@@ -1,274 +1,281 @@
 <style>
-    /* --- Style to remove extra padding of the body and other containers outside the Free Content widget -- */
-    body>.free-text {
-        background-color: #155072;
-    }
+/* --- Style to remove extra padding of the body and other containers outside the Free Content widget -- */
 
-    body .free-text .container>.row {
-        padding: 0;
-    }
+body>.free-text {
+	background-color: #155072;
+}
+
+body .free-text .container>.row {
+	padding: 0;
+}
 
 .container .top-banner__category {
 	display: none;
 }
 
-    body .free-text .container>.col-xs-12 {
-        padding: 0;
-    }
-
-    body>.free-text>.container {
-	    padding-left: 0;
-        padding-right: 0;
-        overflow: hidden;
-    }
-
-    body>.free-text>.container>.row>.col-xs-12>.container-fluid {
-        padding-right: 0;
-        padding-left: 16px;
-    }
-
-    /* --- GENERAL -- */
-    .container-ccwizard {
-        padding: 24px 0 8px 0;
-        background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/04/24120105/be-ccwizard-bgimage-compressed5-952.jpg');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position-y: bottom;
-        background-position-x: right;
-        height: 260px;
-    }
-
-    .container-buttons {
-        /* This makes the buttons to aling in just one line */
-        display: flex;
-        justify-content: flex-start;
-        /* ------------------------------------------------ */
-        overflow: auto;
-        white-space: nowrap;
-        margin-left: 0;
-        height: auto;
-    }
-
-    .ccwizard-buttons-normal {
-        display: inline-block;
-        background-color: white;
-        border: 1px solid #979290;
-        border-radius: 3px;
-        box-shadow: inset 0px -4px 0px #DEDCD9;
-        font-size: 16px;
-        font-weight: bold;
-        color: #6C6563;
-        max-width: 128px;
-        min-width: 128px;
-        height: 48px;
-        padding: 12px;
-        margin-right: 16px;
-        margin-bottom: 16px;
-    }
-
-    .ccwizard-buttons-selected {
-        display: block;
-        background-color: #56924B;
-        border: none;
-        border-radius: 3px;
-        box-shadow: inset 0px -4px 0px #56924B;
-        font-size: 16px;
-        font-weight: bold;
-        color: white;
-        max-width: 128px;
-        min-width: 128px;
-        height: 48px;
-        padding: 12px;
-        margin-right: 16px;
-        margin-bottom: 16px;
-    }
-
-    .container-ccwizard p {
-        font-size: 16px !important;
-        font-weight: bold;
-        color: white;
-    }
-
-    .ccwizard-helpicon {
-        font-size: 23px;
-        margin-right: 8px;
-    }
-
-    .title-container-desktop {
-        display: inline-flex;
-        color: white;
-    }
-
-    .title-container-desktop .title {
-        font-size: 24px !important;
-        margin-top: 0;
-    }
-
-    .ccwizard-marginright {
-        display: none;
-        background-color: #155072;
-        border: #155072;
-        width: 16px;
-    }
-
-    .ccwizard-nomarginright {
-        margin-right: 0 !important;
-    }
-
-    /* ----------- MOBILE SPECIFIC ----------- */
-    .title-container-mobile {
-        display: none;
-        color: white;
-        margin-bottom: 16px;
-    }
-
-    .container-ccwizard .title-container-mobile .title-mobile {
-        font-size: 16px !important;
-        text-decoration: underline;
-        margin: 0 8px 0 4px;
-    }
-
-    .hide-chevron {
-        display: none;
-    }
-
-
-    /* ----------- MEDIA QUERIES ----------- */
-    @media only screen and (max-device-width : 769px) {
-        .container-ccwizard {
-            background-image: none;
-            height: auto;
-        }
-
-        .ccwizard-helpicon {
-            margin-right: 2px;
-            font-size: 16px;
-        }
-
-        .ccwizard-nomarginright {
-            margin-right: 0 !important;
-        }
-        
-        .ccwizard-marginright {
-            display: block;
-        }
-
-    }
-
-    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-
-        /* Styles */
-        .title-container-mobile {
-            display: inline-flex;
-        }
-
-        .hide-chevron {
-            display: block;
-        }
-
-        .title-container-desktop {
-            display: none;
-        }
-
-        .container-ccwizard {
-            background-image: none;
-        }
-    }
-/* ----------- DLP CUSTOMISATIONS ----------- */
-/* Filter position swap */
-.filter-panel-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+body .free-text .container>.col-xs-12 {
+	padding: 0;
 }
 
-.filter-panel-container div:nth-of-type(6)  {
-    -webkit-box-ordinal-group: 2;
-    -moz-box-ordinal-group: 2;
-    -ms-flex-order: 2;
-    -webkit-order: 2;
-    order: 2;
+body>.free-text>.container {
+	padding-left: 0;
+	padding-right: 0;
+	overflow: hidden;
+}
+
+body>.free-text>.container>.row>.col-xs-12>.container-fluid {
+	padding-right: 0;
+	padding-left: 16px;
+}
+
+
+/* --- GENERAL -- */
+
+.container-ccwizard {
+	padding: 24px 0 8px 0;
+	background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/04/24120105/be-ccwizard-bgimage-compressed5-952.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position-y: bottom;
+	background-position-x: right;
+	height: 260px;
+}
+
+.container-buttons {
+	/* This makes the buttons to aling in just one line */
+	display: flex;
+	justify-content: flex-start;
+	/* ------------------------------------------------ */
+	overflow: auto;
+	white-space: nowrap;
+	margin-left: 0;
+	height: auto;
+}
+
+.ccwizard-buttons-normal {
+	display: inline-block;
+	background-color: white;
+	border: 1px solid #979290;
+	border-radius: 3px;
+	box-shadow: inset 0px -4px 0px #DEDCD9;
+	font-size: 16px;
+	font-weight: bold;
+	color: #6C6563;
+	max-width: 128px;
+	min-width: 128px;
+	height: 48px;
+	padding: 12px;
+	margin-right: 16px;
+	margin-bottom: 16px;
+}
+
+.ccwizard-buttons-selected {
+	display: block;
+	background-color: #56924B;
+	border: none;
+	border-radius: 3px;
+	box-shadow: inset 0px -4px 0px #56924B;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	max-width: 128px;
+	min-width: 128px;
+	height: 48px;
+	padding: 12px;
+	margin-right: 16px;
+	margin-bottom: 16px;
+}
+
+.container-ccwizard p {
+	font-size: 16px !important;
+	font-weight: bold;
+	color: white;
+}
+
+.ccwizard-helpicon {
+	font-size: 23px;
+	margin-right: 8px;
+}
+
+.title-container-desktop {
+	display: inline-flex;
+	color: white;
+}
+
+.title-container-desktop .title {
+	font-size: 24px !important;
+	margin-top: 0;
+}
+
+.ccwizard-marginright {
+	display: none;
+	background-color: #155072;
+	border: #155072;
+	width: 16px;
+}
+
+.ccwizard-nomarginright {
+	margin-right: 0 !important;
+}
+
+
+/* ----------- MOBILE SPECIFIC ----------- */
+
+.title-container-mobile {
+	display: none;
+	color: white;
+	margin-bottom: 16px;
+}
+
+.container-ccwizard .title-container-mobile .title-mobile {
+	font-size: 16px !important;
+	text-decoration: underline;
+	margin: 0 8px 0 4px;
+}
+
+.hide-chevron {
+	display: none;
+}
+
+
+/* ----------- MEDIA QUERIES ----------- */
+
+@media only screen and (max-device-width: 769px) {
+	.container-ccwizard {
+		background-image: none;
+		height: auto;
+	}
+	.ccwizard-helpicon {
+		margin-right: 2px;
+		font-size: 16px;
+	}
+	.ccwizard-nomarginright {
+		margin-right: 0 !important;
+	}
+	.ccwizard-marginright {
+		display: block;
+	}
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	/* Styles */
+	.title-container-mobile {
+		display: inline-flex;
+	}
+	.hide-chevron {
+		display: block;
+	}
+	.title-container-desktop {
+		display: none;
+	}
+	.container-ccwizard {
+		background-image: none;
+	}
+}
+
+
+/* ----------- DLP CUSTOMISATIONS ----------- */
+
+
+/* Filter position swap */
+
+.filter-panel-container {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.filter-panel-container div:nth-of-type(6) {
+	-webkit-box-ordinal-group: 2;
+	-moz-box-ordinal-group: 2;
+	-ms-flex-order: 2;
+	-webkit-order: 2;
+	order: 2;
 }
 
 .filter-panel-container hr:nth-of-type(2) {
-    -webkit-box-ordinal-group: 1;
-    -moz-box-ordinal-group: 1;
-    -ms-flex-order: 1;
-    -webkit-order: 1;
-    order: 1;
+	-webkit-box-ordinal-group: 1;
+	-moz-box-ordinal-group: 1;
+	-ms-flex-order: 1;
+	-webkit-order: 1;
+	order: 1;
 }
 
 .filter-panel-container hr {
-  margin-left: 0;
-  margin-right: 0;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 
 /* Remove the first column as it contains the score */
+
 .metrics>div:nth-of-type(2) {
 	display: none !important;
 }
 
+
 /* Make top-bar thinner */
+
 .generic-design .top-banner__category {
-    visibility: hidden !important;
-    height: 1px;
+	visibility: hidden !important;
+	height: 1px;
 }
 
 @media (min-width: 992px) {
-    .generic-design .top-banner {
-        height: 50px !important
-    }
+	.generic-design .top-banner {
+		height: 50px !important
+	}
 }
 
 @media (max-width: 992px) {
- /* Make mobile filter button bigger and white */
-    .generic-design .top-banner-icon {
-        font-size: 40px;
-        cursor: pointer;
-        color: white;
-    }
+	/* Make mobile filter button bigger and white */
+	.generic-design .top-banner-icon {
+		font-size: 40px;
+		cursor: pointer;
+		color: white;
+	}
 }
 
 
 /* Style for the table of more details */
+
 .cc-more-details {
-width: 100%;
+	width: 100%;
 }
 
 .cc-more-details thead {
-font-weight: bold;
+	font-weight: bold;
 }
 
 .cc-more-details td:nth-child(1) {
-width: 35%;
+	width: 35%;
 }
 
 .cc-more-details td:nth-child(2) {
-width: 15%;
+	width: 15%;
 }
 
 .cc-more-details td:nth-child(3) {
-width: 15%;
+	width: 15%;
 }
 
 .cc-more-details td:nth-child(4) {
-width: 35%;
+	width: 35%;
 }
 
 .cc-more-details tr td {
-border-bottom: dotted 1px grey;
-content: "";
-display: inline-enable;
-vertical-align: middle;
-min-height: 35px;
+	border-bottom: dotted 1px grey;
+	content: "";
+	display: inline-enable;
+	vertical-align: middle;
+	min-height: 35px;
 }
 </style>
 
