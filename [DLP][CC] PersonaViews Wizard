@@ -30,7 +30,6 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 
 
 /* --- GENERAL -- */
-
 .container-ccwizard {
 	padding: 24px 0 8px 0;
 	background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/04/24120105/be-ccwizard-bgimage-compressed5-952.jpg');
@@ -139,7 +138,6 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 
 
 /* ----------- MEDIA QUERIES ----------- */
-
 @media only screen and (max-device-width: 769px) {
 	.container-ccwizard {
 		background-image: none;
@@ -175,10 +173,7 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 
 
 /* ----------- DLP CUSTOMISATIONS ----------- */
-
-
 /* Filter position swap */
-
 .filter-panel-container {
 	display: -webkit-box;
 	display: -moz-box;
@@ -213,16 +208,19 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 	margin-right: 0;
 }
 
+/* Remove the bold from the bank labels */
+label.provider-switch-name {
+    font-weight: normal;
+    cursor: pointer;
+}
 
 /* Remove the first column as it contains the score */
-
 .metrics>div:nth-of-type(2) {
 	display: none !important;
 }
 
 
 /* Make top-bar thinner */
-
 .generic-design .top-banner__category {
 	visibility: hidden !important;
 	height: 1px;
@@ -243,9 +241,13 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 	}
 }
 
+/* The vertical header title is appearing too big. Not sure why. Forcing it to be smaller */
+.top-banner__heading-header {
+    font-size: 23px !important;
+    font-weight: normal !important;
+}
 
 /* Style for the table of more details */
-
 .cc-more-details {
 	width: 100%;
 }
@@ -335,13 +337,19 @@ function waitForElement(selector, callback){
     },100);
 }
 // Customize the lines in this block
-  waitForElement('label:contains("Filtres")', function() {
-    $('label:contains("Filtres")').hide();
-    $('label:contains("Remise d\'argent")').parent().before("<label>Réduction</label>");
-    $('label:contains("Assurance de voyage")').parent().before("<label>Assurances de voyage</label>");
-    $('label:contains("Assurance achats en ligne")').parent().before("<label>Assurances de base</label>");
-    $('label:contains("Carte de crédit")').parent().before("<label>Type de carte de crédit</label>");
-  });
+waitForElement('label:contains("Filtres")', function() {
+	$('label:contains("Filtres")').hide();
+	$('label:contains("Remise d\'argent")').parent().before("<label>Réduction</label>");
+	$('label:contains("Assurance de voyage")').parent().before("<label>Assurances de voyage</label>");
+	$('label:contains("Assurance achats en ligne")').parent().before("<label>Assurances de base</label>");
+	$('label:contains("Carte de crédit")').parent().before("<label>Type de carte de crédit</label>");
+	/* Temporary hack: link the bank labels to the check box */
+	$(".provider-switch-container").each( function( index, value ) {
+	  let new_id = $(this).find("input").eq(0).val();
+	  $(this).find("input").eq(0).attr("id", new_id);
+	  $(this).find("label").eq(1).attr("for", new_id);
+	});
+});
 
 // Script for hiding and showing depending on what button you select
 $(".js-ccwizard-final").on("click", function () {
