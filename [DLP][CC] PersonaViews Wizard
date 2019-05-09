@@ -282,7 +282,6 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 
 <div class="container-fluid container-ccwizard">
     <div class="title-container-desktop">
-        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip"></i>
         <h3 class="title">Help me find the right credit card</h3>
     </div>
 
@@ -294,7 +293,7 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 
     <div class="panel" style="display: block;">
         <div id="wizard-level1">
-            <p>I’m going to use my credit card for:</p>
+            <p>I'm going to use my credit card for:</p>
             <div id="ccwizard-use-buttons" class="container-buttons">
                 <button class="ccwizard-buttons-normal js-ccwizard-group" wizard-category="shopping" wizard-view="asdf">Shopping</button>
                 <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="all-round" wizard-view="asdf">All-round</button>
@@ -306,7 +305,7 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 
         <div id="wizard-level2">
             <div wizard-category="shopping" class="ccwizard-section" style="display: none;">
-                <p>I’m going to be shopping:</p>
+                <p>I'm going to be shopping:</p>
                 <div class="container-buttons">
                     <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="online" wizard-view="asdf">Online</button>
                     <button class="ccwizard-buttons-normal js-ccwizard-final" wizard-category="offline" wizard-view="asdf">Offline</button>
