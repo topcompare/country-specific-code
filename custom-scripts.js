@@ -1,3 +1,14 @@
+/* This is a custom script and contains the following features:
+- HL funnel: Adds a validation message to the LTV and Employment status fields
+- HL funnel: Removes "back" button if in step 2
+- HL funnel: Adds HC branding (defined in separate css file) and disclaimers
+- HL results table: Use the exclusivity banner to mark the HypoConnect products
+- HL results table: Add APR/TAEG assumption in the disclaimer
+- All results tables: Adds automatic adjustment of the loan tenure according to the loan amount
+- Other: Sends the newsletter subscriptions to GetSiteControl widget (as Salesforce integration is deprecated)
+- Other: Changes a couple of provider icons on the homepage (requested visibilty)
+*/
+
 /*
 SECTION: Set variables and base values
 */
@@ -120,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	var checkExist = setInterval(function() {
 		if (window.location.href.indexOf("etapes") + window.location.href.indexOf("stappen") > -1 ) {
  			// The financial plan is loaded separately but does not refresh itself. Use this to do so (binding to the input events is more cumbersome and unstable than refreshing periodically)
-   	 		updateFP();
+   	 		// updateFP();
 		}
 		// Hide back button in step 2 for as long as there is no other purpose
 		if (window.location.href.indexOf("step/2") > - 1 ) {
