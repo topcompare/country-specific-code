@@ -34,7 +34,6 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
     color: rgb(49, 47, 46);
     color: white;
     cursor: default;
-    /* display: block; */
     font-family: proxima-nova, Helvetica, "Open Sans",Arial,sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -80,7 +79,7 @@ span.visible-xs.visible-sm.filter-panel-header-icon.m-cgg-icon--cross:before {
     content: "" !important;
 }
 
-@media (max-width: 992px) {}
+@media (max-width: 992px) {
 .generic-design .top-banner__heading {
     padding-top: 4px;
     width: calc(100% - 42px) !important;
