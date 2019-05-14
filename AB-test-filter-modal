@@ -15,10 +15,10 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
     margin-top: 0px;
     margin-bottom: 30px;
     padding-left: 0;
-    width: 95vw;
+    width: 100vw;
     position: fixed;
     top: 0;
-    left: 5vw;
+    left: 0vw;
     z-index: 99;
     background-color: #fff;
     -webkit-transition: left .3s ease;
@@ -30,8 +30,6 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
 }
 
 .filter-panel-header-icon.m-cgg-icon--cross::after {
-    content: "Apply";
-    font-family: proxima-nova,"Helvetica Neue",Helvetica,"Microsoft JhengHei","Open Sans",Arial,sans-serif
     box-sizing: border-box;
     color: rgb(49, 47, 46);
     color: white;
@@ -50,13 +48,24 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
+:lang(nl) .filter-panel-header-icon.m-cgg-icon--cross::after {
+    content: "Bevestigen";
+}
+:lang(fr) .filter-panel-header-icon.m-cgg-icon--cross::after {
+    content: "Valider";
+}
+
 .filter-panel-header-icon.m-cgg-icon--cross {
-    border: solid 1px rgb(204, 203, 200);
     padding: 5px;
     padding-bottom: 2px;
     border-radius: 3px;
-    background-color: #337ab7;
     color: white;
+    background: #78aa43;
+    box-shadow: 0 5px #618840;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 600;
+    font-size: 15px;
 }
 
 .range-limit-container {
@@ -65,4 +74,16 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
 
 .slider-set {
     height : unset !important
+}
+
+span.visible-xs.visible-sm.filter-panel-header-icon.m-cgg-icon--cross:before {
+    content: "" !important;
+}
+
+@media (max-width: 992px) {}
+.generic-design .top-banner__heading {
+    padding-top: 4px;
+    width: calc(100% - 42px) !important;
+    font-size: 19px;
+}
 }
