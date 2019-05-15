@@ -1,3 +1,4 @@
+#### CSS ####
 a.top-banner-icon.m-cgg-icon--Filter-mobile {
     font-size: 42px;
     color: white;
@@ -29,32 +30,7 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
     height: 100vh;
 }
 
-.filter-panel-header-icon.m-cgg-icon--cross::after {
-    box-sizing: border-box;
-    color: rgb(49, 47, 46);
-    color: white;
-    cursor: default;
-    font-family: proxima-nova, Helvetica, "Open Sans",Arial,sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    height: 20px;
-    line-height: 20px;
-    margin-bottom: 5px;
-    max-width: 100%;
-    text-size-adjust: 100%;
-    width: 290px;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
-}
-
-:lang(nl) .filter-panel-header-icon.m-cgg-icon--cross::after {
-    content: "Bevestigen";
-}
-:lang(fr) .filter-panel-header-icon.m-cgg-icon--cross::after {
-    content: "Valider";
-}
-
-.filter-panel-header-icon.m-cgg-icon--cross {
+.btn-green {
     padding: 5px;
     padding-bottom: 2px;
     border-radius: 3px;
@@ -65,6 +41,17 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
     padding-right: 30px;
     font-weight: 600;
     font-size: 15px;
+    box-sizing: border-box;
+    width: 90vw;
+    text-align: center;
+}
+
+:lang(fr) .btn-green::after {
+    content: "Montrer les résultats";
+}
+
+:lang(nl) .btn-green::after {
+    content: "Toon de resultaten";
 }
 
 .range-limit-container {
@@ -76,7 +63,14 @@ a.top-banner-icon.m-cgg-icon--Filter-mobile {
 }
 
 span.visible-xs.visible-sm.filter-panel-header-icon.m-cgg-icon--cross:before {
-    content: "" !important;
+    font-size: 24px;
+}
+
+.sticky-bottom {
+    position: sticky;
+    bottom: 0;
+    padding-bottom: 15px;
+    background: white;
 }
 
 @media (max-width: 992px) {
@@ -86,3 +80,7 @@ span.visible-xs.visible-sm.filter-panel-header-icon.m-cgg-icon--cross:before {
     font-size: 19px;
 }
 }
+
+#### JS ####
+<div class="filter-panel-group sticky-bottom"><hr><span class="visible-xs visible-sm filter-panel-header-icon btn-green" onclick="filterController.switchFilter()"></span>
+    <div>
