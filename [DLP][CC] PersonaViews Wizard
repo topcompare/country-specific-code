@@ -63,7 +63,8 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 	max-width: 128px;
 	min-width: 128px;
 	height: 48px;
-	padding: 12px;
+	/* padding: 12px; */
+	white-space: normal;
 	margin-right: 16px;
 	margin-bottom: 16px;
 }
@@ -80,7 +81,8 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 	max-width: 128px;
 	min-width: 128px;
 	height: 48px;
-	padding: 12px;
+	/* padding: 12px; */
+	white-space: normal;
 	margin-right: 16px;
 	margin-bottom: 16px;
 }
