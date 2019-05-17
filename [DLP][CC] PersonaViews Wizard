@@ -223,6 +223,16 @@ input[name="Annualfee"].filter-panel-input-box {
 	visibility: hidden
 }
 
+/* Allow custom sorting of filters. Sorted elements need to add the 'order' attribute */
+.filter-panel-wrapper > div > div:nth-child(10) {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+}
+
 /* Remove the bold from the bank labels */
 label.provider-switch-name {
     font-weight: normal;
@@ -353,12 +363,38 @@ function waitForElement(selector, callback){
 }
 // Customize the lines in this block
 waitForElement('label:contains("Filtres")', function() {
-	$('label:contains("Filtres")').hide();
+	// Unwrap the child elements in the load more section and clean the list of elements
+	$("#filter-panel-product-subcategories-more>.provider-switch-container").unwrap()
+	$('.filter-panel-wrapper > div > div:nth-child(10)').children().not('.provider-switch-container').remove()
+	
+	// Sort by setting the order attribute in the flex display
+	$('label:contains("Miles")').parent().css("order",9);
+	$('label:contains("Toegang tot exclusieve lounges")').parent().css("order",8);
+	$('label:contains("Vertraging en gemiste vlucht verzekering")').parent().css("order",7);
+	$('label:contains("Bagageverzekering")').parent().css("order",6);
+	$('label:contains("Bijstand aan personen")').parent().css("order",5);
+	$('label:contains("Voordelen")').parent().css("order",4);
+	$('label:contains("Kortingen")').parent().css("order",3);
+	$('label:contains("Online aankoopverzekering")').parent().css("order",3);
+	$('label:contains("Fraude verzekering")').parent().css("order",3);
+	$('label:contains("Aankoopverzekering")').parent().css("order",3);
+	$('label:contains("Uitbreiding van de garantie")').parent().css("order",3);
+	$('label:contains("Annuleringsverzekering")').parent().css("order",3);
+	$('label:contains("Zonder kredietopening")').parent().css("order",3);
+	$('label:contains("Rekening bij bank verplicht")').parent().css("order",3);
+	$('label:contains("Reisongevallenverzekering")').parent().css("order",3);
+	$('label:contains("Met kredietopening")').parent().css("order",3);
+	$('label:contains("Bijstand aan voertuigen")').parent().css("order",3);
+	$('label:contains("Cashback")').parent().css("order",2);
+	$('label:contains("Prepaid")').parent().css("order",1);
+
+	// Add custom titltes to create sections in the filter list
 	$('label:contains("Remise d\'argent")').parent().before("<label>Réduction</label>");
 	$('label:contains("Assurance de voyage")').parent().before("<label>Assurances de voyage</label>");
 	$('label:contains("Assurance achats en ligne")').parent().before("<label>Assurances de base</label>");
 	$('label:contains("Carte de crédit")').parent().before("<label>Type de carte de crédit</label>");
-	/* Temporary hack: link the bank labels to the check box */
+	
+	// Link the bank labels to the check box (todo; make permanent!)
 	$(".provider-switch-container").each( function( index, value ) {
 	  let new_id = $(this).find("input").eq(0).val();
 	  $(this).find("input").eq(0).attr("id", new_id);
