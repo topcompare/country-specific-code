@@ -1,86 +1,108 @@
 #### CSS ####
-a.top-banner-icon.m-cgg-icon--Filter-mobile {
-    font-size: 42px;
-    color: white;
-}
-
-.filter-panel-container.hidden-xs.hidden-sm {
-    display: unset !important;
-    left: 100%;
-}
-
-.filter-panel-container {
-    background-color: #fff;
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 0px;
-    margin-bottom: 30px;
-    padding-left: 0;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0vw;
-    z-index: 99;
-    background-color: #fff;
-    -webkit-transition: left .3s ease;
-    -o-transition: left .3s ease;
-    transition: left 0.3s ease;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    height: 100vh;
-}
-
-.btn-green {
-    padding: 5px;
-    padding-bottom: 2px;
-    border-radius: 3px;
-    color: white;
-    background: #78aa43;
-    box-shadow: 0 5px #618840;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-weight: 600;
-    font-size: 15px;
-    box-sizing: border-box;
-    width: 90vw;
-    text-align: center;
-}
-
-:lang(fr) .btn-green::after {
-    content: "Montrer les résultats";
-}
-
-:lang(nl) .btn-green::after {
-    content: "Toon de resultaten";
-}
-
-.range-limit-container {
-    display: none !important
-}
-
-.slider-set {
-    height : unset !important
-}
-
-span.visible-xs.visible-sm.filter-panel-header-icon.m-cgg-icon--cross:before {
-    font-size: 24px;
-}
-
-.sticky-bottom {
-    position: sticky;
-    bottom: 0;
-    padding-bottom: 15px;
-    background: white;
-}
-
 @media (max-width: 992px) {
-.generic-design .top-banner__heading {
-    padding-top: 4px;
-    width: calc(100% - 42px) !important;
-    font-size: 19px;
-}
+    a.top-banner-icon.m-cgg-icon--Filter-mobile {
+        font-size: 42px;
+        color: white;
+    }
+
+    .filter-panel-container.hidden-xs.hidden-sm {
+        display: unset !important;
+        left: 100%;
+    }
+
+    .filter-panel-container {
+        background-color: #fff;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        padding-left: 0;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0vw;
+        z-index: 99;
+        background-color: #fff;
+        -webkit-transition: left .3s ease;
+        -o-transition: left .3s ease;
+        transition: left 0.3s ease;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+        height: 100vh;
+    }
+
+    .btn-green {
+        padding: 5px;
+        padding-bottom: 2px;
+        border-radius: 3px;
+        color: white;
+        background: #78aa43;
+        box-shadow: 0 5px #618840;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-weight: 600;
+        font-size: 15px;
+        box-sizing: border-box;
+        width: 90vw;
+        text-align: center;
+    }
+
+    :lang(fr) .btn-green::after {
+        content: "Montrer les résultats";
+    }
+
+    :lang(nl) .btn-green::after {
+        content: "Toon de resultaten";
+    }
+
+    .range-limit-container {
+        display: none !important
+    }
+
+    .slider-set {
+        height : unset !important
+    }
+
+    span.visible-xs.visible-sm.filter-panel-header-icon.m-cgg-icon--cross:before {
+        font-size: 24px;
+    }
+
+    .sticky-bottom {
+        position: sticky;
+        bottom: 0;
+        padding-bottom: 15px;
+        background: white;
+    }
+
+    .generic-design .top-banner__heading {
+        padding-top: 4px;
+        width: calc(100% - 42px) !important;
+        font-size: 19px;
+    }
+
 }
 
 #### JS ####
-<div class="filter-panel-group sticky-bottom"><hr><span class="visible-xs visible-sm filter-panel-header-icon btn-green" onclick="filterController.switchFilter()"></span>
-    <div>
+function modFilterLoader() {
+	if (!$(".filter-panel-container").hasClass("lm-touched")) {
+		$(".filter-panel-container").addClass("lm-touched");
+		// add button at the bottom
+		$(".filter-panel-container").append('<div class="filter-panel-group sticky-bottom"><hr><span class="visible-xs visible-sm filter-panel-header-icon btn-green" onclick="filterController.switchFilter()"></span><div>');
+
+		// make labels selectable
+		$(".provider-switch-container").each( function( index, value ) {
+		  let new_id = $(this).find("input").eq(0).val();
+		  $(this).find("input").eq(0).attr("id", new_id);
+		  $(this).find("label").eq(1).attr("for", new_id);
+		});
+	}
+}
+
+$( document ).ready(function() {
+	modFilterLoader();
+
+	$(".filter-panel-container").bind("DOMSubtreeModified", function(e) {
+		modFilterLoader();
+	});
+});
+
