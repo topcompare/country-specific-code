@@ -322,11 +322,12 @@ label.provider-switch-name {
 
 <div class="container-fluid container-ccwizard">
     <div class="title-container-desktop">
+        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip" title=""></i>
         <h3 class="title">Help me find the right credit card</h3>
     </div>
 
     <div class="title-container-mobile accordion active">
-        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip" title=""></i>
+        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip"></i>
         <h3 class="title-mobile">Help me find the right credit card</h3><i id="chevron"
             class="hide-chevron m-cgg-icon--chevron-up"></i>
     </div>
