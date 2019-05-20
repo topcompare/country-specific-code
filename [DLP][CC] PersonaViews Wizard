@@ -252,6 +252,13 @@ label.provider-switch-name {
 	display: none !important;
 }
 
+/* Translations for the filter titles*/
+:lang(fr) #filter-title-assurances:before {
+	content: "Assurances";
+}
+:lang(nl) #filter-title-assurances:before {
+	content: "Verzekeringen";
+}
 
 /* Make top-bar thinner */
 .generic-design .top-banner__category {
@@ -397,10 +404,8 @@ waitForElement('label:contains("Filtres")', function() {
 	$("[value=113]").parent().parent().css("order",19);
 
 	// Add custom titltes to create sections in the filter list
-	$('label:contains("Remise d\'argent")').parent().before("<label>Réduction</label>");
-	$('label:contains("Assurance de voyage")').parent().before("<label>Assurances de voyage</label>");
-	$('label:contains("Assurance achats en ligne")').parent().before("<label>Assurances de base</label>");
-	$('label:contains("Carte de crédit")').parent().before("<label>Type de carte de crédit</label>");
+	$(".filter-panel-group.providers").eq(1).append('<label id="filter-title-assurances" style="order: 5"></label>');
+	$(".filter-panel-group.providers").eq(1).append('<label id="filter-title-other" style="order: 6"></label>');
 	
 	// Link the bank labels to the check box (todo; make permanent!)
 	$(".provider-switch-container").each( function( index, value ) {
