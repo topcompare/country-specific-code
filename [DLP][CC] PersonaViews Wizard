@@ -211,6 +211,11 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 	margin-right: 0;
 }
 
+/* Regain the space freed up */
+.slider-set {
+	height: unset;
+}
+
 /* Add missing € sign to input box and remove the labels from the slider */
 input[name="Annualfee"].filter-panel-input-box {
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='85px'><text x='2' y='13' fill='black' font-size='14' font-family='arial'>€</text></svg>");
