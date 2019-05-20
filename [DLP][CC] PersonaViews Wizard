@@ -370,7 +370,7 @@ function waitForElement(selector, callback){
     },100);
 }
 // Customize the lines in this block
-waitForElement('filter-panel-product-subcategories-more', function() {
+waitForElement('#filter-panel-product-subcategories-more', function() {
 	// Unwrap the child elements in the load more section and clean the list of elements
 	$("#filter-panel-product-subcategories-more>.provider-switch-container").unwrap();
 	$('.filter-panel-wrapper > div > div:nth-child(10)').children().not('.provider-switch-container').remove();
