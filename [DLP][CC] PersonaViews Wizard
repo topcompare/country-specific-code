@@ -96,6 +96,7 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 .ccwizard-helpicon {
 	font-size: 23px;
 	margin-right: 8px;
+	cursor: pointer;
 }
 
 .title-container-desktop {
@@ -252,14 +253,6 @@ label.provider-switch-name {
 	display: none !important;
 }
 
-/* Translations for the filter titles*/
-:lang(fr) #filter-title-assurances:before {
-	content: "Assurances";
-}
-:lang(nl) #filter-title-assurances:before {
-	content: "Verzekeringen";
-}
-
 /* Make top-bar thinner */
 .generic-design .top-banner__category {
 	visibility: hidden !important;
@@ -328,7 +321,7 @@ label.provider-switch-name {
     </div>
 
     <div class="title-container-mobile accordion active">
-        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip"></i>
+        <i class="ccwizard-helpicon m-cgg-icon--i-tooltip" title=""></i>
         <h3 class="title-mobile">Help me find the right credit card</h3><i id="chevron"
             class="hide-chevron m-cgg-icon--chevron-up"></i>
     </div>
@@ -377,7 +370,7 @@ function waitForElement(selector, callback){
     },100);
 }
 // Customize the lines in this block
-waitForElement('label:contains("Filtres")', function() {
+waitForElement('filter-panel-product-subcategories-more', function() {
 	// Unwrap the child elements in the load more section and clean the list of elements
 	$("#filter-panel-product-subcategories-more>.provider-switch-container").unwrap();
 	$('.filter-panel-wrapper > div > div:nth-child(10)').children().not('.provider-switch-container').remove();
@@ -404,8 +397,13 @@ waitForElement('label:contains("Filtres")', function() {
 	$("[value=113]").parent().parent().css("order",19);
 
 	// Add custom titltes to create sections in the filter list
-	$(".filter-panel-group.providers").eq(1).append('<label id="filter-title-assurances" style="order: 5"></label>');
-	$(".filter-panel-group.providers").eq(1).append('<label id="filter-title-other" style="order: 6"></label>');
+	if (document.documentElement.lang == "fr-BE") {
+		$(".filter-panel-group.providers").eq(1).append('<label style="order: 5">Assurances</label>');
+		$(".filter-panel-group.providers").eq(1).append('<label style="order: 6">Autres</label>');
+	} else if (document.documentElement.lang == "nl-BE") {
+		$(".filter-panel-group.providers").eq(1).append('<label style="order: 5">Verzekeringen</label>');
+		$(".filter-panel-group.providers").eq(1).append('<label style="order: 6">Andere</label>');
+	}
 	
 	// Link the bank labels to the check box (todo; make permanent!)
 	$(".provider-switch-container").each( function( index, value ) {
@@ -417,9 +415,9 @@ waitForElement('label:contains("Filtres")', function() {
 
 // Script for results page modifications
 function modCCresultstable() {
-	if (!$("#results-container").hasClass("lm-touched")) {
+	if (!$("#unavailable-products").hasClass("lm-touched")) {
 		// Only apply this once
-		$("#results-container").addClass("lm-touched");
+		$("#unavailable-products").addClass("lm-touched");
 		
 		// Add missing disabled apply buttons
 		$(".button-card-column.card-column.visible-lg.visible-md").each(function(){
@@ -447,6 +445,12 @@ $( document ).ready(function() {
 	});
 });
 
+// Make the info box clickable and jump to the FAQ section
+$(".ccwizard-helpicon").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $(".product-know-how__panel__header").offset().top
+    }, 500);
+});
 
 // START SCRIPT FOR THE ABOVE-THE-FOLD-WIZARD
 // Script for hiding and showing depending on what button you select
