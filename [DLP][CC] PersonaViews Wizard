@@ -223,6 +223,14 @@ input[name="Annualfee"].filter-panel-input-box {
 	visibility: hidden
 }
 
+/* Add missing disabled apply buttons */
+:lang(fr) .btn-primary-normal:disabled:before{
+    content: "Non disponible"
+}
+:lang(nl) .btn-primary-normal:disabled:before{
+    content: "Niet beschikbaar"
+}
+
 /* Allow custom sorting of filters. Sorted elements need to add the 'order' attribute */
 .filter-panel-wrapper > div > div:nth-child(10) {
     display: flex;
@@ -364,29 +372,29 @@ function waitForElement(selector, callback){
 // Customize the lines in this block
 waitForElement('label:contains("Filtres")', function() {
 	// Unwrap the child elements in the load more section and clean the list of elements
-	$("#filter-panel-product-subcategories-more>.provider-switch-container").unwrap()
-	$('.filter-panel-wrapper > div > div:nth-child(10)').children().not('.provider-switch-container').remove()
+	$("#filter-panel-product-subcategories-more>.provider-switch-container").unwrap();
+	$('.filter-panel-wrapper > div > div:nth-child(10)').children().not('.provider-switch-container').remove();
 	
 	// Sort by setting the order attribute in the flex display
-	$('label:contains("Miles")').parent().css("order",9);
-	$('label:contains("Toegang tot exclusieve lounges")').parent().css("order",8);
-	$('label:contains("Vertraging en gemiste vlucht verzekering")').parent().css("order",7);
-	$('label:contains("Bagageverzekering")').parent().css("order",6);
-	$('label:contains("Bijstand aan personen")').parent().css("order",5);
-	$('label:contains("Voordelen")').parent().css("order",4);
-	$('label:contains("Kortingen")').parent().css("order",3);
-	$('label:contains("Online aankoopverzekering")').parent().css("order",3);
-	$('label:contains("Fraude verzekering")').parent().css("order",3);
-	$('label:contains("Aankoopverzekering")').parent().css("order",3);
-	$('label:contains("Uitbreiding van de garantie")').parent().css("order",3);
-	$('label:contains("Annuleringsverzekering")').parent().css("order",3);
-	$('label:contains("Zonder kredietopening")').parent().css("order",3);
-	$('label:contains("Rekening bij bank verplicht")').parent().css("order",3);
-	$('label:contains("Reisongevallenverzekering")').parent().css("order",3);
-	$('label:contains("Met kredietopening")').parent().css("order",3);
-	$('label:contains("Bijstand aan voertuigen")').parent().css("order",3);
-	$('label:contains("Cashback")').parent().css("order",2);
-	$('label:contains("Prepaid")').parent().css("order",1);
+	$("[value=109]").parent().parent().css("order",14);
+	$("[value=110]").parent().parent().css("order",15);
+	$("[value=102]").parent().parent().css("order",8);
+	$("[value=103]").parent().parent().css("order",7);
+	$("[value=105]").parent().parent().css("order",9);
+	$("[value=107]").parent().parent().css("order",13);
+	$("[value=108]").parent().parent().css("order",12);
+	$("[value=96]").parent().parent().css("order",1);
+	$("[value=97]").parent().parent().css("order",4);
+	$("[value=98]").parent().parent().css("order",2);
+	$("[value=99]").parent().parent().css("order",3);
+	$("[value=101]").parent().parent().css("order",6);
+	$("[value=112]").parent().parent().css("order",18);
+	$("[value=114]").parent().parent().css("order",16);
+	$("[value=100]").parent().parent().css("order",5);
+	$("[value=111]").parent().parent().css("order",17);
+	$("[value=104]").parent().parent().css("order",10);
+	$("[value=106]").parent().parent().css("order",11);
+	$("[value=113]").parent().parent().css("order",19);
 
 	// Add custom titltes to create sections in the filter list
 	$('label:contains("Remise d\'argent")').parent().before("<label>Réduction</label>");
@@ -396,12 +404,46 @@ waitForElement('label:contains("Filtres")', function() {
 	
 	// Link the bank labels to the check box (todo; make permanent!)
 	$(".provider-switch-container").each( function( index, value ) {
-	  let new_id = $(this).find("input").eq(0).val();
-	  $(this).find("input").eq(0).attr("id", new_id);
-	  $(this).find("label").eq(1).attr("for", new_id);
+		var new_id = $(this).find("input").eq(0).val();
+		$(this).find("input").eq(0).attr("id", new_id);
+		$(this).find("label").eq(1).attr("for", new_id);
 	});
 });
 
+// Script for results page modifications
+function modCCresultstable() {
+	if (!$("#results-container").hasClass("lm-touched")) {
+		// Only apply this once
+		$("#results-container").addClass("lm-touched");
+		
+		// Add missing disabled apply buttons
+		$(".button-card-column.card-column.visible-lg.visible-md").each(function(){
+		if ($(this).children().length == 0)
+		 $(this).append('<button class="btn btn-primary-normal btn-text" disabled=""><span class="btn-text-span"></span></button>');
+		});
+		
+		// Hyphenate long words
+		$('.show-more-container td').each(function() {
+			var text = $(this).text();
+			$(this).html(text.replace('verzekering', '&shy;verzekering'));
+		});
+
+		$('.column-secondary').each(function() {
+			var text = $(this).text();
+			$(this).html(text.replace('verzekering', '&shy;verzekering'));
+		});
+	}
+}
+
+$( document ).ready(function() {
+	modCCresultstable();
+	$("#results-container").bind("DOMSubtreeModified", function(e) {
+		modCCresultstable();
+	});
+});
+
+
+// START SCRIPT FOR THE ABOVE-THE-FOLD-WIZARD
 // Script for hiding and showing depending on what button you select
 $(".js-ccwizard-final").on("click", function () {
 if (!$(this.closest("#wizard-level2")).length) {
@@ -459,5 +501,5 @@ $(this).addClass("ccwizard-buttons-selected");
 	$("#category-dropdown").val(wizard_view);
 	$("#category-dropdown").get(0).dispatchEvent(new Event('change'));
 
-})
+});
 </script>
