@@ -32,7 +32,7 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 /* --- GENERAL -- */
 .container-ccwizard {
 	padding: 24px 0 8px 0;
-	background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/04/24120105/be-ccwizard-bgimage-compressed5-952.jpg');
+	background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/06/17131947/be-ccwizard-bgimage-compressed-952.jpg');
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position-y: bottom;
@@ -151,7 +151,6 @@ body>.free-text>.container>.row>.col-xs-12>.container-fluid {
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-	/* Styles */
 	.title-container-mobile {
 		display: inline-flex;
 	}
