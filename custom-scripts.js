@@ -141,9 +141,22 @@ document.addEventListener("DOMContentLoaded", function () {
 }, false);
 
 var checkExist = setInterval(function () {
-		if (window.location.href.indexOf("etapes") + window.location.href.indexOf("stappen") > -1 && typeof updateFP === "function") {
+		if (window.location.href.indexOf("etapes") + window.location.href.indexOf("stappen") > -1 ) {
 			// The financial plan is loaded separately but does not refresh itself. Use this to do so (binding to the input events is more cumbersome and unstable than refreshing periodically)
-   	 		updateFP();
+   	 		if (typeof updateFP === "function") updateFP();
+			// Bring desktop buttons to mobile
+			if ($(".continue-button").parent().parent().hasClass("desktop-only")) {
+			    // hide mobile only button bar
+			    $(".cgg-bottom-button-container").hide();
+			    // make desktop buttons appear on mobile
+			    $(".continue-button").parent().parent().removeClass("desktop-only");
+			    $(".go-back-button").parent().removeClass("desktop-only");
+			    // resize the continue button
+			    $(".continue-button").parent().removeClass("cgg-col-xs-12");
+			    $(".continue-button").parent().addClass("col-xs-6");
+			    // resize the back button
+			    $(".go-back-button").parent().addClass("col-xs-6");
+			}
 		}
 		// Hide back button in step 2 for as long as there is no other purpose
 		if (window.location.href.indexOf("step/2") >  - 1) {
