@@ -141,6 +141,10 @@ document.addEventListener("DOMContentLoaded", function () {
 }, false);
 
 var checkExist = setInterval(function () {
+		if (window.location.href.indexOf("etapes") + window.location.href.indexOf("stappen") > -1 && typeof updateFP === "function") {
+			// The financial plan is loaded separately but does not refresh itself. Use this to do so (binding to the input events is more cumbersome and unstable than refreshing periodically)
+   	 		updateFP();
+		}
 		// Hide back button in step 2 for as long as there is no other purpose
 		if (window.location.href.indexOf("step/2") >  - 1) {
 			if ($(".go-back-button.ng-scope").is(":visible"))
@@ -170,7 +174,7 @@ var checkExist = setInterval(function () {
 			}
 		}
 		// Notify for LTV > 100% or if own funds >50% of propertyValue
-		if (window.location.href.indexOf("step/3") > -1 ) {
+		if (window.location.href.indexOf("step/3") > -1 && typeof totalAmount !== "undefined") {
 			if ($("#highlightLTV").length == 0) $('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
 			if ($("input[name=ownFunds]").val() != "" && totalAmount / propertyValue > 1.05) {
 				$("#highlightLTV")[0].lastChild.nodeValue = locales2[lang]["highlightLTV"];
@@ -195,7 +199,7 @@ var checkExist = setInterval(function () {
 						$(".card-container").eq(i).find(".product-label:contains('Exclu')").text("HypoConnect");
 						$(".card-container").eq(i).find(".product-label:contains('HypoConnect')").parent().parent().addClass("hc");
 					} else {
-						// make sure the remaining empty span box is not visibile
+						// make sure the remaining empty span box is not visible
 						$(".card-container").eq(i).find(".product-label").get(0).setAttribute("style", "background-color: transparent !important");
 						// hide the apply click button
 						$(".card-container").eq(i).find("button").hide();
