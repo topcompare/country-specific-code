@@ -179,15 +179,6 @@ var checkExist = setInterval(function () {
 			$("body").removeClass("hypoconnect");
 		}
 
-		// Notify for employment special cases
-		if (window.location.href.indexOf("step/7") > -1 ) {
-			if ($("#highlightEmploymentStatus").length == 0) $('select[name="employmentStatus"]').parent().after(highlightEmploymentStatus);
-			if (/independent|liberal_professional|company_manager/.test($('select[name="employmentStatus"] option:selected').val())) {
-				$("#highlightEmploymentStatus").removeClass("ng-hide");
-			} else {
-				$("#highlightEmploymentStatus").addClass("ng-hide");
-			}
-		}
 		// Notify for LTV > 100% or if own funds >50% of propertyValue
 		if (window.location.href.indexOf("step/3") > -1 ) {
 			if ($("#highlightLTV").length == 0) $('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
@@ -199,6 +190,20 @@ var checkExist = setInterval(function () {
 				$("#highlightLTV").removeClass("ng-hide");
 			} else {
 				$("#highlightLTV").addClass("ng-hide");
+			}
+		}
+		
+		// Notify for employment special cases
+		if (window.location.href.indexOf("step/4") > -1 ) {
+			if ($("#highlightEmploymentStatus").length == 0) $('select[name="employmentStatus"]').parent().after(highlightEmploymentStatus);
+			if (/independent|liberal_professional|company_manager/.test($('select[name="employmentStatus"] option:selected').val())) {
+				$("#highlightEmploymentStatus").removeClass("ng-hide");
+			} else {
+				$("#highlightEmploymentStatus").addClass("ng-hide");
+			}
+			
+			if($('option').eq(0).prop('disabled') == true){
+				$("option:disabled").eq(0).insertAfter($('option[value="mg.funnel.config.stepInfo[3].templateOption.template[12].data.worker"]'));
 			}
 		}
 	
