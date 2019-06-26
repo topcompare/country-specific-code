@@ -22,25 +22,25 @@ var locales2 = {
 		highlightEmploymentStatus:
 		" Ce statut professionnel a des conditions spéciales pour les taux. Nous afficherons les taux standards mais le courtier sera informé de votre statut afin de vous proposer le meilleur taux.",
 		highlightLTV:
-		" Vous ne disposez pas de suffisamment de fonds propres pour financer votre projet. Peu de banques accordent un prêt hypothécaire avec une quotité  supérieure à 100%.",
+		" Vous ne disposez pas de suffisamment de fonds propres pour financer votre projet. Peu de banques accordent un prêt hypothécaire avec une quotité  supérieure à 105%.",
 		disclaimerTopHC:
-		"Vos données seront envoyées à et traitées par HypoConnect SA, courtier en crédit hypothécaire, pour fournir un TAEG plus précis et une éligibilité préliminaire testée auprès des 15+ banques partenaires de HypoConnect. En soumettant votre recherche, vous donnez implicitement votre accord pour l’utilisation de vos données à ces fins. Après avoir soumis vos informations, vous aurez accès en temps réel aux taux personnalisés et votre éligibilité auprès de ces banques.",
+		"Les données que vous communiquez permettent à notre partenaire courtier, HypoConnect SA, de calculer directement votre <b>taux personnalisé</b> et votre <b>éligibilité</b> auprès de 18 institutions bancaires partenaires. En soumettant votre recherche, vous donnez implicitement votre accord pour l’utilisation de vos données à ces fins. ",
 		disclaimerBottomHC:
-		"Cette page, qui est sous la responsabilité de HypoConnect SA, est hébergée par TopCompare Information Services Belgium.",
+		"Cette page, qui est sous la responsabilité de HypoConnect SA, est hébergée par TopCompare Information Services Belgium SPRL.",
 		disclaimerResultsHC:
-		"Cet aperçu des produits est hébergé par TopCompare Information Services Belgium BVBA. HypoConnect SA propose des produits de banques disponibles via courtier (couleur mauve), indiquant votre probabilité d'éligibilité et un TAEG adapté selon vos informations personnelles et financières. Toute indication du TAEG ou de la probabilité d'éligibilité n'est pas contraignante, les conditions finales de la souscription au crédit hypothécaire sont la responsabilité ultime de la banque. TopCompare Information Services Belgium BVBA propose des produits de banques disponibles sans courtier, en utilisant uniquement les informations relatives à votre projet hypothécaire. Le calcul du TAEG présenté dans le tableau de résultats se fonde sur les hypothèses et montants suivants:<br>- le montant total des intérêts qui sont payés ;<br>- les frais de dossier entre 0 et 500 EUR en fonction de la banque ;<br>- les frais d’expertise d'une valeur moyenne de 250 EUR pour faire estimer la valeur de votre habitation par un expert ;<br>- les frais de notaire (autres que les honoraires) estimés pour l’établissement d’une inscription hypothécaire totale du montant de votre prêt ;<br>- la prime unique d’assurance solde restant dû,calculée sur base du taux sur le marché pour une personne non fumeur de 30 ans;<br>- le total des primes d’assurance habitation en tant que propriétaire, la prime annuelle moyenne du marché étant estimée à 320 EUR pour une habitation standard."
+		"Cet aperçu des produits est hébergé par TopCompare Information Services Belgium SPRL et contient deux catégories de résultats. Premièrement, les produits d'institutions disponibles via courtier (HypoConnect SA) indiquent votre éligibilité sur base de vos informations personnelles et financières. De plus, vous obtenez également une indication personnalisée de votre TAEG (Taux annuel effectif global, comprenant tous les coûts annuels associés à l'ouverture de votre hypothèque). Cette estimation du TAEG et votre probabailité d'éligibilité ne sont pas contraignantes. Les conditions finales d'octroi du prêt restent sous la responsabilité utltime de l'établissement de crédit. Deuxièmement, les produits d'institutions disponibles  sans courtier sont montrés, utilisant seulement les informations relatives à votre projet immobilier et non personnalisées. Le calcul du TAEG présenté dans le tableau de résultats est basé sur les hypothèses et montants suivants:<br>- le montant total des intérêts payés ;<br>- les frais de dossier qui s'élèvent en moyenne à 500 EUR;<br>- les frais d’expertise d'une valeur moyenne de 250 EUR (estimation de votre propriété par un expert) ;<br>- les frais de notaire (autres que les honoraires) estimés pour l’établissement d’une inscription hypothécaire totale du montant de votre prêt ;<br>- la prime unique d’assurance solde restant dû,calculée sur base du taux sur le marché pour un non fumeur de 30 ans;<br>- le total des primes d’assurance habitation en tant que propriétaire, la prime annuelle moyenne du marché étant estimée à 320 EUR pour une habitation standard."
 	},
 	nl: {
 		highlightEmploymentStatus:
-		" Deze professionele status heeft speciale voorwaarden voor tarieven. Wij geven de standaardtarieven weer, maar de makelaar wordt op de hoogte gebracht van uw status om u het beste tarief aan te bieden.",
+		" Aan je beroepsstatuut zijn speciale voorwaarden voor tarieven gekoppeld. Wij geven de standaardtarieven weer, maar een makelaar geeft je gerichter advies. Zo krijg je, op basis van je situatie, het beste tarief aangeboden.",
 		highlightLTV:
-		" U beschikt niet over voldoende eigen vermogen om uw project te financieren. Weinig banken verstrekken een hypothecair krediet met een quotiteit hoger dan 100%. Wij geven de standaardtarieven weer, maar de makelaar wordt op de hoogte gebracht van uw situatie om u het beste tarief aan te bieden.",
+		" Je hebt niet voldoende eigen vermogen om je project te financieren. Weinig banken verstrekken een hypothecair krediet met een quotiteit (de procentuele verhouding tussen de lening die je aangaat voor je woning en de waarde van de woning) hoger dan 105%. Wij geven de standaardtarieven weer, maar een makelaar geeft je gerichter advies. Zo krijg je, op basis van je situatie, het beste tarief aangeboden.",
 		disclaimerTopHC:
-		"Uw gegevens worden verzonden naar en verwerkt door HypoConnect hypotheekmakelaar om een nauwkeuriger JKP en voorlopige geschiktheid getest met de 15+ partner banken van HypoConnect. Door het indienen van uw simulatie gaat u impliciet akkoord met het gebruik van uw gegevens voor deze doeleinden. Na het invoeren van uw gegevens heeft u in realtime toegang tot gepersonaliseerde tarieven en uw geschiktheid bij deze banken",
+		"Op basis van je gegevens kan onze makelaarspartner, HypoConnect NV, onmiddellijk je persoonlijke tarief en geschiktheid berekenen bij 18 partnerkredietgevers.  Door verder te gaan, ga je impliciet akkoord met het gebruik van je gegevens voor dit doel.",
 		disclaimerBottomHC:
-		"Deze webpagina, die onder de verantwoordelijkheid van HypoConnect NV valt, wordt gehost door TopCompare Information Services Belgium.",
+		"Deze webpagina, waarvoor HypoConnect NV verantwoordelijk is, wordt gehost door TopCompare Information Services Belgium BVBA.",
 		disclaimerResultsHC:
-		"Dit productoverzicht wordt gehost door TopCompare Information Services Belgium BVBA. HypoConnect NV beschikt over producten van makelaarsbanken (paarse kleur) die uw waarschijnlijkheid van goedkeuring en een meer gepersonaliseerde JKP met behulp van uw persoonlijke en financiële informatie aangeven. Elke indicatie van een JKP of waarschijnlijkheid van goedkeuring is niet bindend, de uiteindelijke voorwaarden zijn de verantwoordelijkheid van de bank. TopCompare Information Services Belgium BVBA bevat producten van niet-makelaarsbanken en gebruikt alleen de informatie over uw hypotheekproject voor dit doel. Het jaarlijks kostenpercentage (JKP) vertegenwoordigt de kostprijs van de lening op jaarbasis en houdt rekening met de verschillende kosten verbonden aan een hypothecaire lening. De berekening van het JKP in de resultatentabel is gebaseerd op de volgende veronderstellingen en bedragen:<br>- het totale bedrag aan rente dat wordt betaald;<br>- de administratieve kosten tussen 0 en 500 EUR, afhankelijk van de bank;<br>- de kosten van een expertiseschatting met een gemiddelde waarde van 250 EUR om de waarde van uw woning door een expert te laten schatten;<br>- de geschatte notariskosten (andere dan honoraria) voor het vaststellen van een totale hypotheekregistratie van het bedrag van uw lening;<br>- de eenmalige premie voor de schuldsaldoverzekering, berekend op basis van het markttarief voor een niet-roker van 30 jaar;<br>- de totale woningverzekeringspremies als eigenaar, waarbij de gemiddelde jaarlijkse marktpremie wordt geschat op 320 euro voor een standaardwoning."
+		"Dit productoverzicht wordt gehost door TopCompare Information Services Belgium BVBA en bevat twee soorten resultaten. Ten eerste zijn er de producten van makelaarskantoren (via HypoConnect NV) waarbij wordt aangegeven wat de waarschijnlijkheid is dat je aanvraag wordt goedgekeurd op basis van je persoonlijke en financiële informatie. Daarnaast krijg je een meer gepersonaliseerde indicatie van je JKP (Jaarlijks KostenPercentage, de kosten op jaarbasis die samenhangen met het afsluiten van een hypothecaire lening). Deze indicatie van een JKP en de waarschijnlijkheid van goedkeuring zijn niet bindend. De uiteindelijke voorwaarden zijn de verantwoordelijkheid van de bank. Ten tweede zijn er de producten die beschikbaar zijn zonder makelaar waarbij enkel gebruik wordt gemaakt van de informatie over je hypotheekproject. De berekening van het JKP, zoals weergegeven in de resultatentabel, is gebaseerd op de volgende veronderstellingen en bedragen: <br>- het totale bedrag aan rente dat wordt betaald; <br>- de administratieve kosten die gemiddelde €500 bedragen; <br>- de kosten van een expertiseschatting (het laten schatten van de waarde van uw woning door een expert) die gemiddelde €250 bedragen; <br>- de geschatte notariskosten (andere kosten dan honoraria) voor het vaststellen van een totale hypotheekregistratie, wat afhankelijk is van het bedrag van uw lening; <br>- de eenmalige premie voor de schuldsaldoverzekering, wat berekend wordt op basis van het markttarief voor een niet-roker van dertig jaar; <br>- de totale woningverzekeringspremies als eigenaar, waarbij de gemiddelde jaarlijkse marktpremie wordt geschat op €320 voor een standaardwoning."
 	}
 };
 
@@ -126,21 +126,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		$(".cc-provider__list a[href='/nl/aanbieders/elantis']").attr("href", "/nl/aanbieders/bpost-bank");
 		$(".cc-provider__list").find("img").eq(4).prop("alt", "KBC");
 		$(".cc-provider__list").find("img").eq(8).prop("alt", "bpost bank");
-		
+		/* Add HL hero button to homepage and rename loans to consumer loans
 		if (lang == "fr") {
-			// Add HL hero button
 			$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Prêts hypothécaires" id="hero-mg-btn" href="/fr/pret-hypothecaire"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Prêts hypothécaires"> </span> <span class="hero-item-txt">Prêts hypothécaires</span> </a> </li>');
-			// Rename loans to consumer loans
 			$("#hero-pl-btn").find(".hero-item-txt").text("Prêts à tempérament");
 		}
 		if (lang == "nl") {
-			// Add HL hero button
 			$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Hypothecaire leningen" id="hero-mg-btn" href="/nl/hypothecaire-lening"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Hypothecaire leningen"> </span> <span class="hero-item-txt">Hypothecaire leningen</span> </a> </li>');
-			// Rename loans to consumer loans
 			$("#hero-pl-btn").find(".hero-item-txt").text("Leningen op afbetaling");
 		}
 		// Remove TA hero button
 		$("#hero-ta-btn").parent().remove();
+		*/
 	}
 
 	// make cookie consent bar trackable for a/b tests
@@ -169,19 +166,23 @@ var checkExist = setInterval(function () {
 		}
 
 		// Notify for employment special cases
-		if (window.location.href.indexOf("step/7") > -1 && $("#highlightEmploymentStatus").length == 0) {
-			$('select[name="employmentStatus"]').parent().after(highlightEmploymentStatus);
+		if (window.location.href.indexOf("step/7") > -1 ) {
+			if ($("#highlightEmploymentStatus").length == 0) $('select[name="employmentStatus"]').parent().after(highlightEmploymentStatus);
 			if (/independent|liberal_professional|company_manager/.test($('select[name="employmentStatus"] option:selected').val())) {
 				$("#highlightEmploymentStatus").removeClass("ng-hide");
 			} else {
 				$("#highlightEmploymentStatus").addClass("ng-hide");
 			}
 		}
-		// Notify for LTV > 100%
-		if (window.location.href.indexOf("step/3") > -1 && $("#highlightLTV").length == 0) {
-			$('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
+		// Notify for LTV > 100% or if own funds >50% of propertyValue
+		if (window.location.href.indexOf("step/3") > -1 ) {
+			if ($("#highlightLTV").length == 0) $('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
 			if ($("input[name=ownFunds]").val() != "" && totalAmount / propertyValue > 1.05) {
+				$("#highlightLTV")[0].lastChild.nodeValue = locales2[lang]["highlightLTV"];
 				$("#highlightLTV").removeClass("ng-hide");
+			//} else if (parseFloat($("input[name=ownFunds]").val().replace(/[^\d\.]/g,'')) / propertyValue > 0.5) { 
+			//	$("#highlightLTV")[0].lastChild.nodeValue = locales2[lang]["highlightOwnFunds"];
+			//	$("#highlightLTV").removeClass("ng-hide");
 			} else {
 				$("#highlightLTV").addClass("ng-hide");
 			}
