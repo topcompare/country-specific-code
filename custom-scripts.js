@@ -126,21 +126,22 @@ document.addEventListener("DOMContentLoaded", function () {
 		$(".cc-provider__list a[href='/nl/aanbieders/elantis']").attr("href", "/nl/aanbieders/bpost-bank");
 		$(".cc-provider__list").find("img").eq(4).prop("alt", "KBC");
 		$(".cc-provider__list").find("img").eq(8).prop("alt", "bpost bank");
+		
+		if (lang == "fr") {
+			// Add HL hero button
+			$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Prêts hypothécaires" id="hero-mg-btn" href="/fr/pret-hypothecaire"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Prêts hypothécaires"> </span> <span class="hero-item-txt">Prêts hypothécaires</span> </a> </li>');
+			// Rename loans to consumer loans
+			$("#hero-pl-btn").find(".hero-item-txt").text("Prêts à tempérament");
+		}
+		if (lang == "nl") {
+			// Add HL hero button
+			$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Hypothecaire leningen" id="hero-mg-btn" href="/nl/hypothecaire-lening"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Hypothecaire leningen"> </span> <span class="hero-item-txt">Hypothecaire leningen</span> </a> </li>');
+			// Rename loans to consumer loans
+			$("#hero-pl-btn").find(".hero-item-txt").text("Leningen op afbetaling");
+		}
+		// Remove TA hero button
+		$("#hero-ta-btn").parent().remove();
 	}
-	if (lang == "fr") {
-		// Add HL hero button
-		$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Prêts hypothécaires" id="hero-mg-btn" href="/fr/pret-hypothecaire"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Prêts hypothécaires"> </span> <span class="hero-item-txt">Prêts hypothécaires</span> </a> </li>');
-		// Rename loans to consumer loans
-		$("#hero-pl-btn").find(".hero-item-txt").text("Prêts à tempérament");
-	}
-	if (lang == "nl") {
-		// Add HL hero button
-		$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Hypothecaire leningen" id="hero-mg-btn" href="/nl/hypothecaire-lening"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Hypothecaire leningen"> </span> <span class="hero-item-txt">Hypothecaire leningen</span> </a> </li>');
-		// Rename loans to consumer loans
-		$("#hero-pl-btn").find(".hero-item-txt").text("Leningen op afbetaling");
-	}
-	// Remove TA hero button
-	$("#hero-ta-btn").parent().remove();
 
 	// make cookie consent bar trackable for a/b tests
 	$(".cookies-apply-button").attr("ga-category", "ab").attr("ga-label", "click").attr("ga-action", "Clicked-accept").addClass("btn-trackable");
@@ -221,5 +222,27 @@ var checkExist = setInterval(function () {
 				// set a class to tell it has been touched
 				$("#eligible-products").addClass("tc-touched");
 			}
+			
+			// Add the rate type to the small tiles of unknown eligibility products
+			if ($(".rate-type").length == 0) {
+				$("#unknown-eligibility-products .card-container").each(function(index){
+					let text, label;
+					if (lang == "fr") {
+						let type = $(".product-name",this).text().split("variable ");
+						text = "Fixe";
+						label = "Variabilité";
+						if (type.length > 1) text = type.pop();
+					} else {
+						let type = $(".product-name",this).text().split("rentevoet ");
+						text = "Vast";
+						label = "Type rente";
+						if (type.length > 1) text = type.pop();
+					}
+					//console.debug(text);
+					let html = '<div class="card-column clickable rate-type" data-col-title="apr"> <div class="column-secondary card-column__before_text"> </div> <div class="column-primary card-column__value">'+text+ '</div> <div class="column-secondary card-column__title">'+label+'</div> <div class="column-secondary card-column__description"></div> </div>';
+					$("[data-col-title=apr]",this).before(html);
+				});
+			}
+			
 		}
 	}, 100);
