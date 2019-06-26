@@ -23,6 +23,7 @@ var locales2 = {
 		" Ce statut professionnel a des conditions spéciales pour les taux. Nous afficherons les taux standards mais le courtier sera informé de votre statut afin de vous proposer le meilleur taux.",
 		highlightLTV:
 		" Vous ne disposez pas de suffisamment de fonds propres pour financer votre projet. Peu de banques accordent un prêt hypothécaire avec une quotité  supérieure à 105%.",
+		highlightOwnFunds: " Vous avez indiqué des fonds propres couvrant plus de 50% de la valeur de votre bien, veuillez vérifier qu’il n’y a pas de faute de frappe dans les montants.",
 		disclaimerTopHC:
 		"Les données que vous communiquez permettent à notre partenaire courtier, HypoConnect SA, de calculer directement votre <b>taux personnalisé</b> et votre <b>éligibilité</b> auprès de 18 institutions bancaires partenaires. En soumettant votre recherche, vous donnez implicitement votre accord pour l’utilisation de vos données à ces fins. ",
 		disclaimerBottomHC:
@@ -35,6 +36,7 @@ var locales2 = {
 		" Aan je beroepsstatuut zijn speciale voorwaarden voor tarieven gekoppeld. Wij geven de standaardtarieven weer, maar een makelaar geeft je gerichter advies. Zo krijg je, op basis van je situatie, het beste tarief aangeboden.",
 		highlightLTV:
 		" Je hebt niet voldoende eigen vermogen om je project te financieren. Weinig banken verstrekken een hypothecair krediet met een quotiteit (de procentuele verhouding tussen de lening die je aangaat voor je woning en de waarde van de woning) hoger dan 105%. Wij geven de standaardtarieven weer, maar een makelaar geeft je gerichter advies. Zo krijg je, op basis van je situatie, het beste tarief aangeboden.",
+		highlightOwnFunds: " Je hebt een eigen vermogen ingevuld dat meer dan 50% van de waarde van je onroerend goed dekt, controleer of er geen typefouten in de bedragen staan.",
 		disclaimerTopHC:
 		"Op basis van je gegevens kan onze makelaarspartner, HypoConnect NV, onmiddellijk je <b>persoonlijke tarief</b> en <b>geschiktheid</b> berekenen bij 18 partnerkredietgevers. Door verder te gaan, ga je impliciet akkoord met het gebruik van je gegevens voor dit doel.",
 		disclaimerBottomHC:
@@ -187,14 +189,14 @@ var checkExist = setInterval(function () {
 			}
 		}
 		// Notify for LTV > 100% or if own funds >50% of propertyValue
-		if (window.location.href.indexOf("step/3") > -1 && typeof totalAmount !== "undefined") {
+		if (window.location.href.indexOf("step/3") > -1 ) {
 			if ($("#highlightLTV").length == 0) $('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
 			if ($("input[name=ownFunds]").val() != "" && totalAmount / propertyValue > 1.05) {
 				$("#highlightLTV")[0].lastChild.nodeValue = locales2[lang]["highlightLTV"];
 				$("#highlightLTV").removeClass("ng-hide");
-			//} else if (parseFloat($("input[name=ownFunds]").val().replace(/[^\d\.]/g,'')) / propertyValue > 0.5) { 
-			//	$("#highlightLTV")[0].lastChild.nodeValue = locales2[lang]["highlightOwnFunds"];
-			//	$("#highlightLTV").removeClass("ng-hide");
+			} else if (ownFunds / propertyValue > 0.5) { 
+				$("#highlightLTV")[0].lastChild.nodeValue = locales2[lang]["highlightOwnFunds"];
+				$("#highlightLTV").removeClass("ng-hide");
 			} else {
 				$("#highlightLTV").addClass("ng-hide");
 			}
