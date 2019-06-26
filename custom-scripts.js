@@ -186,7 +186,12 @@ var checkExist = setInterval(function () {
 				$("#highlightLTV").addClass("ng-hide");
 			}
 		}
-
+	
+		// Remove hint box for email
+		if (window.location.href.indexOf("step/7") > -1 && $(".cgg-help.ng-scope").length == 1) {
+			$(".cgg-help.ng-scope").remove();
+		}
+	
 		// Load results table hacks
 		if (window.location.href.indexOf("pret-hypothecaire/tous/results") + window.location.href.indexOf("hypothecaire-lening/alle/results") > -1) {
 			$("body").addClass("hl-rt");
