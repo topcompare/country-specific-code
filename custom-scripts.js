@@ -36,7 +36,7 @@ var locales2 = {
 		highlightLTV:
 		" Je hebt niet voldoende eigen vermogen om je project te financieren. Weinig banken verstrekken een hypothecair krediet met een quotiteit (de procentuele verhouding tussen de lening die je aangaat voor je woning en de waarde van de woning) hoger dan 105%. Wij geven de standaardtarieven weer, maar een makelaar geeft je gerichter advies. Zo krijg je, op basis van je situatie, het beste tarief aangeboden.",
 		disclaimerTopHC:
-		"Op basis van je gegevens kan onze makelaarspartner, HypoConnect NV, onmiddellijk je persoonlijke tarief en geschiktheid berekenen bij 18 partnerkredietgevers.  Door verder te gaan, ga je impliciet akkoord met het gebruik van je gegevens voor dit doel.",
+		"Op basis van je gegevens kan onze makelaarspartner, HypoConnect NV, onmiddellijk je <b>persoonlijke tarief</b> en <b>geschiktheid</b> berekenen bij 18 partnerkredietgevers. Door verder te gaan, ga je impliciet akkoord met het gebruik van je gegevens voor dit doel.",
 		disclaimerBottomHC:
 		"Deze webpagina, waarvoor HypoConnect NV verantwoordelijk is, wordt gehost door TopCompare Information Services Belgium BVBA.",
 		disclaimerResultsHC:
@@ -93,11 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		var target = element.currentTarget;
 		var loanAmount = target.value;
 		if (!!document.getElementById("loan-amount") && !tc_touched) {
-			/* Show popup to push cross-selling to CC
-			if (loanAmount < 2500) {
-			if (lang == "nl") { _gscq.push(["show", 390737]); }
-			else { _gscq.push(["show", 388445]); }
-			}*/
 			if (loanAmount <= 500)
 				$('#loan-tenure').val(18);
 			else if (loanAmount <= 5000)
@@ -211,15 +206,12 @@ var checkExist = setInterval(function () {
 				}
 				// Add APR/TAEG assumption in the disclaimer
 				$(".cgg-category-disclaimer").html(locales2[lang]["disclaimerResultsHC"]);
-				// trigger popup if there is not eligible product
-				if ($("#eligible-products").find(".card-holder").children().length == 0 && $('input[name="provider"]:checked').length == 0) {
-					if (lang == "nl") {
-						_gscq.push(["show", 390380]);
-					} else {
-						_gscq.push(["show", 390379]);
-					}
-				}
 
+				// Show sorry notice when no results found
+				if ($("#eligible-products").find(".card-container").length == 0 && $("#eligible-under-conditions-products").find(".card-container").length == 0) {
+					$("#approved-products").show();
+				}
+				
 				// set a class to tell it has been touched
 				$("#eligible-products").addClass("tc-touched");
 			}
