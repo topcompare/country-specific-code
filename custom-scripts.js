@@ -220,5 +220,28 @@ document.body.addEventListener('DOMSubtreeModified', function () {
 				// set a class to tell it has been touched
 				$("#eligible-products").addClass("tc-touched");
 			}
+			
+			// Add the rate type to the small tiles of unknown eligibility products
+			if ($(".rate-type").length == 0) {
+				$("#unknown-eligibility-products .card-container").each(function(index){
+					let text, label;
+					if (lang == "fr") {
+						let type = $(".product-name",this).text().split("variable ");
+						text = "Fixe";
+						label = "Variabilité";
+						if (type.length > 1) text = type.pop();
+					} else {
+						let type = $(".product-name",this).text().split("rentevoet ");
+						text = "Vast";
+						label = "Type rente";
+						if (type.length > 1) text = type.pop();
+					}
+					//console.debug(text);
+					let html = '<div class="card-column clickable rate-type" data-col-title="apr"> <div class="column-secondary card-column__before_text"> </div> <div class="column-primary card-column__value">'+text+ '</div> <div class="column-secondary card-column__title">'+label+'</div> <div class="column-secondary card-column__description"></div> </div>';
+					$("[data-col-title=apr]",this).before(html);
+				});
+			}
+			
+			
 		}
 }, false);
