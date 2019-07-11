@@ -281,29 +281,21 @@ label.provider-switch-name {
 	width: 100%;
 }
 
-.cc-more-details thead {
-	font-weight: bold;
-}
-
 .cc-more-details td:nth-child(1) {
-	width: 35%;
+	width: 40%;
 }
 
 .cc-more-details td:nth-child(2) {
-	width: 15%;
+	width: 10%;
 }
 
 .cc-more-details td:nth-child(3) {
-	width: 15%;
-}
-
-.cc-more-details td:nth-child(4) {
-	width: 35%;
+	width: 50%;
 }
 
 .cc-more-details tr td {
-	border-bottom: dotted 1px grey;
-	content: "";
+	border-bottom: dotted 1px rgb(238, 238, 238);
+	border-top: dotted 1px rgb(238, 238, 238);
 	display: inline-enable;
 	vertical-align: middle;
 	min-height: 35px;
