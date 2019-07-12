@@ -1,0 +1,174 @@
+<script>
+    // Script for adding filter category labels
+    function waitForElement(selector, callback) {
+        var poller1 = setInterval(function () {
+            $jObject = jQuery(selector);
+            if ($jObject.length < 1) {
+                return;
+            }
+            clearInterval(poller1);
+            callback($jObject);
+        }, 100);
+    }
+    // Customize the lines in this block
+    waitForElement('#filter-panel-product-subcategories-more', function () {
+        // Unwrap the child elements in the load more section and clean the list of elements
+        $("#filter-panel-product-subcategories-more>.provider-switch-container").unwrap();
+        $('.filter-panel-wrapper > div > div:nth-child(10)').children().not('.provider-switch-container')
+            .remove();
+
+        // Sort by setting the order attribute in the flex display
+        $("[value=109]").parent().parent().css("order", 14);
+        $("[value=110]").parent().parent().css("order", 15);
+        $("[value=102]").parent().parent().css("order", 8);
+        $("[value=103]").parent().parent().css("order", 7);
+        $("[value=105]").parent().parent().css("order", 9);
+        $("[value=107]").parent().parent().css("order", 13);
+        $("[value=108]").parent().parent().css("order", 12);
+        $("[value=96]").parent().parent().css("order", 1);
+        $("[value=97]").parent().parent().css("order", 4);
+        $("[value=98]").parent().parent().css("order", 2);
+        $("[value=99]").parent().parent().css("order", 3);
+        $("[value=101]").parent().parent().css("order", 6);
+        $("[value=112]").parent().parent().css("order", 17);
+        $("[value=114]").parent().parent().css("order", 19);
+        $("[value=100]").parent().parent().css("order", 5);
+        $("[value=111]").parent().parent().css("order", 16);
+        $("[value=104]").parent().parent().css("order", 10);
+        $("[value=106]").parent().parent().css("order", 11);
+        $("[value=113]").parent().parent().css("order", 18);
+
+        // Add custom titltes to create sections in the filter list
+        if (document.documentElement.lang == "fr-BE") {
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 0">Assurances de base</label>');
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 4">Assurances de voyage</label>');
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 10">Réduction</label>');
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 15">Type de carte de crédit</label>');
+        } else if (document.documentElement.lang == "nl-BE") {
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 0">Basisverzekeringen</label>');
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 4">Reisverzekeringen&nbsp;</label>');
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 10">Kortingen en voordelen</label>');
+            $(".filter-panel-group.providers").eq(1).append(
+                '<label style="order: 15">Type kaart</label>');
+        }
+
+        // Link the bank labels to the check box (todo; make permanent!)
+        $(".provider-switch-container").each(function (index, value) {
+            var new_id = $(this).find("input").eq(0).val();
+            $(this).find("input").eq(0).attr("id", new_id);
+            $(this).find("label").eq(1).attr("for", new_id);
+        });
+    });
+
+    // Script for results page modifications
+    function modCCresultstable() {
+        if (!$("#unavailable-products").hasClass("lm-touched")) {
+            // Only apply this once
+            $("#unavailable-products").addClass("lm-touched");
+
+            // Add missing disabled apply buttons
+            $(".button-card-column.card-column.visible-lg.visible-md").each(function () {
+                if ($(this).children().length == 0) $(this).append(
+                        '<button class="btn btn-primary-normal btn-text" disabled=""><span class="btn-text-span"></span></button>'
+                        );
+            });
+            $(".button-card-column.card-column.visible-xs.visible-sm.col-xs-6").each(function () {
+                if ($(this).children().length == 0) $(this).append(
+                        '<button class="btn btn-primary-normal btn-text" disabled=""><span class="btn-text-span"></span></button>'
+                        );
+            });
+
+            // Hyphenate long words
+            $('.show-more-container td').each(function () {
+                var text = $(this).text();
+                $(this).html(text.replace('verzekering', '&shy;verzekering'));
+            });
+
+            $('.column-secondary').each(function () {
+                var text = $(this).text();
+                $(this).html(text.replace('verzekering', '&shy;verzekering'));
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        modCCresultstable();
+        $("#results-container").bind("DOMSubtreeModified", function (e) {
+            modCCresultstable();
+        });
+    });
+
+    // Make the info box clickable and jump to the FAQ section
+    $(".ccwizard-helpicon").click(function () {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(".product-know-how__panel__header").offset().top
+        }, 500);
+    });
+
+    // START SCRIPT FOR THE ABOVE-THE-FOLD-WIZARD
+    // Script for hiding and showing depending on what button you select
+    $(".js-ccwizard-final").on("click", function () {
+        if (!$(this.closest("#wizard-level2")).length) {
+            $("#wizard-level2 > .ccwizard-section").hide();
+        }
+        if (!$(this).hasClass("ccwizard-buttons-selected")) {
+            var wizard_category = this.getAttribute("wizard-category");
+            console.log("change results table " + wizard_category);
+        }
+    });
+
+    $(".js-ccwizard-group").on("click", function () {
+        if (!$(this).hasClass("ccwizard-buttons-selected")) {
+            var wizard_category = this.getAttribute("wizard-category");
+            console.log("try to open the container for " + wizard_category);
+            $("#wizard-level2 > .ccwizard-section").hide();
+            $("#wizard-level2 .ccwizard-section[wizard-category='" + wizard_category + "']").fadeIn('3000');
+        }
+    });
+
+    // Script for accordion on mobile
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+
+    // Script for changing the icon
+    $(function () {
+        $(".title-container-mobile").click(function () {
+            $("#chevron").toggleClass("m-cgg-icon--chevron-down");
+            $("#chevron").toggleClass("m-cgg-icon--chevron-up");
+        });
+    });
+
+    // Script for changing the button styles
+    $(".js-ccwizard-group,.js-ccwizard-final").on("click", function () {
+        if (!$(this.closest("#wizard-level2")).length) {
+            $(".container-ccwizard .ccwizard-buttons-normal").removeClass("ccwizard-buttons-selected");
+        } else {
+            $(this).siblings().removeClass("ccwizard-buttons-selected");
+        }
+        $(this).addClass("ccwizard-buttons-selected");
+        var wizard_view = this.getAttribute("wizard-view");
+        console.log("try to load the view called " + wizard_view);
+        $("#category-dropdown").val(wizard_view);
+        $("#category-dropdown").get(0).dispatchEvent(new Event('change'));
+
+    });
+</script>
