@@ -55,22 +55,9 @@ var highlightLTV =
 	locales2[lang]["highlightLTV"] +
 	"</div>";
 
-function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(";");
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		while (c.charAt(0) == " ")
-			c = c.substring(1, c.length);
-		if (c.indexOf(nameEQ) == 0)
-			return c.substring(nameEQ.length, c.length);
-	}
-	return null;
-}
-
 // Send email capture form to GetSiteControl
 function registerNewsletterToWidget() {
-	var analyticsID = readCookie("analytics_id");
+	var analyticsID = Cookies.get('analytics_id');
 	var emailAddress = document.forms["newsletterForm"].elements["email"].value;
 	var location = window.location.href;
 	var data = '{"form_info":{"form_uid":"fbfbec69-c00d-4b01-9e3c-10a08a168d75","form_page":1,"form_pages":1},"form":{"email":[{"value":"' + emailAddress + '"}]},"user":{"analytics_id":"' + analyticsID + '"},"widget":379802,"location":"' + location + '"}';
@@ -104,9 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			else if (loanAmount >= 10000)
 				$('#loan-tenure').val(48);
 		}
+		// trigger the event because the RT is reloaded before the new tenure is attached to the API call
 		document.getElementById("loan-tenure").dispatchEvent(new Event('change'));
 	};
-	$("#loan-amount").change(loanTenureUpdate);
+	$("#loan-amount").keyup(loanTenureUpdate);
 	$("#loan-slider").change(loanTenureUpdate);
 	// disable script once user manually inputs the loan duration
 	$('#loan-tenure').keydown(function () {
