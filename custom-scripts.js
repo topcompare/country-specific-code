@@ -27,9 +27,7 @@ var locales2 = {
 		disclaimerTopHC:
 		"Les données que vous communiquez permettent à notre partenaire courtier, HypoConnect SA, de calculer directement votre <b>taux personnalisé</b> et votre <b>éligibilité</b> auprès de 18 institutions bancaires partenaires. En soumettant votre recherche, vous donnez implicitement votre accord pour l’utilisation de vos données à ces fins. ",
 		disclaimerBottomHC:
-		"Cette page, qui est sous la responsabilité de HypoConnect SA, est hébergée par TopCompare Information Services Belgium SPRL.",
-		disclaimerResultsHC:
-		"Cet aperçu des produits est hébergé par TopCompare Information Services Belgium SPRL et contient deux catégories de résultats. Premièrement, les produits d'institutions disponibles via courtier (HypoConnect SA) indiquent votre éligibilité sur base de vos informations personnelles et financières. De plus, vous obtenez également une indication personnalisée de votre TAEG (Taux annuel effectif global, comprenant tous les coûts annuels associés à l'ouverture de votre hypothèque). Cette estimation du TAEG et votre probabailité d'éligibilité ne sont pas contraignantes. Les conditions finales d'octroi du prêt restent sous la responsabilité utltime de l'établissement de crédit. Deuxièmement, les produits d'institutions disponibles  sans courtier sont montrés, utilisant seulement les informations relatives à votre projet immobilier et non personnalisées. Le calcul du TAEG présenté dans le tableau de résultats est basé sur les hypothèses et montants suivants:<br>- le montant total des intérêts payés ;<br>- les frais de dossier qui s'élèvent en moyenne à 500 EUR;<br>- les frais d’expertise d'une valeur moyenne de 250 EUR (estimation de votre propriété par un expert) ;<br>- les frais de notaire (autres que les honoraires) estimés pour l’établissement d’une inscription hypothécaire totale du montant de votre prêt ;<br>- la prime unique d’assurance solde restant dû,calculée sur base du taux sur le marché pour un non fumeur de 30 ans;<br>- le total des primes d’assurance habitation en tant que propriétaire, la prime annuelle moyenne du marché étant estimée à 320 EUR pour une habitation standard."
+		"Cette page, qui est sous la responsabilité de HypoConnect SA, est hébergée par TopCompare Information Services Belgium SPRL."
 	},
 	nl: {
 		highlightEmploymentStatus:
@@ -40,9 +38,7 @@ var locales2 = {
 		disclaimerTopHC:
 		"Op basis van je gegevens kan onze makelaarspartner, HypoConnect NV, onmiddellijk je <b>persoonlijke tarief</b> en <b>geschiktheid</b> berekenen bij 18 partnerkredietgevers. Door verder te gaan, ga je impliciet akkoord met het gebruik van je gegevens voor dit doel.",
 		disclaimerBottomHC:
-		"Deze webpagina, waarvoor HypoConnect NV verantwoordelijk is, wordt gehost door TopCompare Information Services Belgium BVBA.",
-		disclaimerResultsHC:
-		"Dit productoverzicht wordt gehost door TopCompare Information Services Belgium BVBA en bevat twee soorten resultaten. Ten eerste zijn er de producten van makelaarskantoren (via HypoConnect NV) waarbij wordt aangegeven wat de waarschijnlijkheid is dat je aanvraag wordt goedgekeurd op basis van je persoonlijke en financiële informatie. Daarnaast krijg je een meer gepersonaliseerde indicatie van je JKP (Jaarlijks KostenPercentage, de kosten op jaarbasis die samenhangen met het afsluiten van een hypothecaire lening). Deze indicatie van een JKP en de waarschijnlijkheid van goedkeuring zijn niet bindend. De uiteindelijke voorwaarden zijn de verantwoordelijkheid van de bank. Ten tweede zijn er de producten die beschikbaar zijn zonder makelaar waarbij enkel gebruik wordt gemaakt van de informatie over je hypotheekproject. De berekening van het JKP, zoals weergegeven in de resultatentabel, is gebaseerd op de volgende veronderstellingen en bedragen: <br>- het totale bedrag aan rente dat wordt betaald; <br>- de administratieve kosten die gemiddelde €500 bedragen; <br>- de kosten van een expertiseschatting (het laten schatten van de waarde van uw woning door een expert) die gemiddelde €250 bedragen; <br>- de geschatte notariskosten (andere kosten dan honoraria) voor het vaststellen van een totale hypotheekregistratie, wat afhankelijk is van het bedrag van uw lening; <br>- de eenmalige premie voor de schuldsaldoverzekering, wat berekend wordt op basis van het markttarief voor een niet-roker van dertig jaar; <br>- de totale woningverzekeringspremies als eigenaar, waarbij de gemiddelde jaarlijkse marktpremie wordt geschat op €320 voor een standaardwoning."
+		"Deze webpagina, waarvoor HypoConnect NV verantwoordelijk is, wordt gehost door TopCompare Information Services Belgium BVBA."
 	}
 };
 
@@ -221,8 +217,6 @@ var checkExist = setInterval(function () {
 						$(".card-container").eq(i).find(".footer-primary").hide(); */
 					}
 				}
-				// Add APR/TAEG assumption in the disclaimer
-				$(".cgg-category-disclaimer").html(locales2[lang]["disclaimerResultsHC"]);
 
 				// Show sorry notice when no results found
 				if ($("#eligible-products").find(".card-container").length == 0 && $("#eligible-under-conditions-products").find(".card-container").length == 0) {
