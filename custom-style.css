@@ -1,13 +1,14 @@
-/* This is a custom css scripts formerly in the SEO header file
-- [feature 1]
-- [feature 2]
+/* 
+	This is a custom css scripts formerly in the SEO header file
 */
 
+/* This block was formerly in the SEO file, I do not know its purpose! */
+/* Miguel's script to remove promo box above the fold when LP and RP were merged? */
 .credit-cards-landing>.item.active.cc .hero-carousel__item__details,
 .credit-cards-landing>.item.active.cc .row.hero-carousel__item__cta,
 .credit-cards-landing>.item.active.pl .hero-carousel__item__details,
 .credit-cards-landing>.item.active.pl .row.hero-carousel__item__cta {
-	display: none;
+	display: none; 
 }
 
 .credit-cards-landing>.item.active.cc .col-lg-7.col-md-7.col-sm-12.col-xs-12,
@@ -72,4 +73,9 @@
 
 .quotes-served {
 	display: none;
+}
+
+/* 20190927: Remove the contact box in the provider pages for compliance reasons (cfr Beobank) and because it does not send the email */
+.provider-details-footer__query-form {
+    display: none;
 }
