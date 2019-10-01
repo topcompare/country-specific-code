@@ -14,8 +14,12 @@
     waitForElement('#filter-panel-product-subcategories-more', function () {
         // Unwrap the child elements in the load more section and clean the list of elements
         $("#filter-panel-product-subcategories-more>.provider-switch-container").unwrap();
-        $('.filter-panel-wrapper > div > div:nth-child(10)').children().not('.provider-switch-container')
+        $('.filter-panel-group.providers').eq(1).children().not('.provider-switch-container')
             .remove();
+			
+		// Put the bank filters after the feature filters
+        $('.filter-panel-group.providers').eq(1).css({"display":  "flex", "flex-direction": "column", "-webkit-box-orient": "vertical", "-moz-box-orient": "vertical", "-webkit-flex-direction": "column", "-ms-flex-direction": "column"});
+		$('.filter-panel-group.providers').eq(1).css({"-webkit-box-ordinal-group": "2","-moz-box-ordinal-group": "2","-ms-flex-order": "2","-webkit-order": "2","order": "2"});
 
         // Sort by setting the order attribute in the flex display
         $("[value=109]").parent().parent().css("order", 14);
@@ -83,17 +87,6 @@
                 if ($(this).children().length == 0) $(this).append(
                     '<button class="btn btn-primary-normal btn-text" disabled=""><span class="btn-text-span"></span></button>'
                 );
-            });
-
-            // Hyphenate long words
-            $('.show-more-container td').each(function () {
-                var text = $(this).text();
-                $(this).html(text.replace('verzekering', '&shy;verzekering'));
-            });
-
-            $('.column-secondary').each(function () {
-                var text = $(this).text();
-                $(this).html(text.replace('verzekering', '&shy;verzekering'));
             });
         }
     }
