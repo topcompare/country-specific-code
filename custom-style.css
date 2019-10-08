@@ -79,3 +79,8 @@
 .provider-details-footer__query-form {
     display: none;
 }
+
+/* Hide RT in CC provider page tab */
+.cgg-results__widget-result.cgg-widget-body.cgg-widget-results.CreditCard.BE {
+    display: none;
+}
