@@ -162,6 +162,14 @@
         console.log("try to load the view called " + wizard_view);
         $("#category-dropdown").val(wizard_view);
         $("#category-dropdown").get(0).dispatchEvent(new Event('change'));
-
+	    
+	if (wizard_view == "VB-Def_payments")
+		$(".loan-amount-input").val('5').change();
+	if (wizard_view == "VB-Basic_traveler")
+		$(".loan-amount-input").val('50').change();
+	if (wizard_view == "VB-Premium_traveler")
+		$(".loan-amount-input").val('600').change();
+	if (wizard_view == "VB-All_Round_Use")
+		$(".loan-amount-input").val('50').change();
     });
 </script>
