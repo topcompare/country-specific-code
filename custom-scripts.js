@@ -120,10 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		$("#hero-ta-btn").parent().remove();
 
 	}
-
-	// make cookie consent bar trackable for a/b tests
-	$(".cookies-apply-button").attr("ga-category", "ab").attr("ga-label", "click").attr("ga-action", "Clicked-accept").addClass("btn-trackable");
-
 }, false);
 
 var checkExist = setInterval(function () {
