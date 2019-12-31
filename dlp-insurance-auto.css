@@ -1,0 +1,64 @@
+.comparison-table {
+    border-collapse: collapse;
+}
+
+.comparison-table td, .comparison-table th {
+    border: 1px solid #DDDDDD;
+    text-align: left;
+    padding: 9px;
+    vertical-align: top;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+.comparison-table td:nth-child(5) span.m-cgg-icon--ciab-tick {
+    color: #77aa43;
+}
+
+.comparison-table td:nth-child(5) span.m-cgg-icon--ciab-minus {
+    color: #e20613;
+}
+
+.comparison-table td:nth-child(1) img {
+    width: 100px;
+    height: unset;
+}
+
+.comparison-table td:nth-child(5) div {
+    margin-left: 25px;
+    padding: 5px 0;
+}
+
+.comparison-table td:nth-child(5) span {
+    margin-left: -30px;
+    position: absolute;
+}
+
+.comparison-table td ul{
+    list-style-position: outside;
+    padding-left: 15px;
+}
+
+.comparison-table td ul li {
+    padding: 5px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .comparison-table th {
+    display: none;
+  }
+  .comparison-table td {
+    display: flex;
+    flex-direction: column;
+  }
+ /* 
+  .comparison-table td::before {
+    content: attr(label);
+    font-weight: bold;
+    width: 120px;
+    min-width: 120px;
+  }
+  */
+}
