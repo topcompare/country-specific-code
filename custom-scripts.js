@@ -1,6 +1,8 @@
 /* This is a custom script and contains the following features:
 - HL funnel: Adds a validation message to the LTV and Employment status fields
 - HL funnel: Removes "back" button if in step 2
+- HL funnel: Adds HC branding (defined in separate css file) and disclaimers
+- HL results table: Use the exclusivity banner to mark the HypoConnect products
 - HL results table: Add APR/TAEG assumption in the disclaimer
 - All results tables: Adds automatic adjustment of the loan tenure according to the loan amount
 - Other: Sends the newsletter subscriptions to GetSiteControl widget (as Salesforce integration is deprecated)
@@ -21,14 +23,22 @@ var locales2 = {
 		" Ce statut professionnel a des conditions spéciales pour les taux. Nous afficherons les taux standards mais le courtier sera informé de votre statut afin de vous proposer le meilleur taux.",
 		highlightLTV:
 		" Vous ne disposez pas de suffisamment de fonds propres pour financer votre projet. Peu de banques accordent un prêt hypothécaire avec une quotité  supérieure à 105%.",
-		highlightOwnFunds: " Vous avez indiqué des fonds propres couvrant plus de 50% de la valeur de votre bien, veuillez vérifier qu’il n’y a pas de faute de frappe dans les montants."
+		highlightOwnFunds: " Vous avez indiqué des fonds propres couvrant plus de 50% de la valeur de votre bien, veuillez vérifier qu’il n’y a pas de faute de frappe dans les montants.",
+		disclaimerTopHC:
+		"Les données que vous communiquez permettent à notre partenaire courtier, HypoConnect SA, de calculer directement votre <b>taux personnalisé</b> et votre <b>éligibilité</b> auprès de 18 institutions bancaires partenaires. En soumettant votre recherche, vous donnez implicitement votre accord pour l’utilisation de vos données à ces fins. ",
+		disclaimerBottomHC:
+		"Cette page, qui est sous la responsabilité de HypoConnect SA, est hébergée par TopCompare Information Services Belgium SPRL."
 	},
 	nl: {
 		highlightEmploymentStatus:
 		" Aan je beroepsstatuut zijn speciale voorwaarden voor tarieven gekoppeld. Wij geven de standaardtarieven weer, maar een makelaar geeft je gerichter advies. Zo krijg je, op basis van je situatie, het beste tarief aangeboden.",
 		highlightLTV:
 		" Je hebt niet voldoende eigen vermogen om je project te financieren. Weinig banken verstrekken een hypothecair krediet met een quotiteit (de procentuele verhouding tussen de lening die je aangaat voor je woning en de waarde van de woning) hoger dan 105%. Wij geven de standaardtarieven weer, maar een makelaar geeft je gerichter advies. Zo krijg je, op basis van je situatie, het beste tarief aangeboden.",
-		highlightOwnFunds: " Je hebt een eigen vermogen ingevuld dat meer dan 50% van de waarde van je onroerend goed dekt, controleer of er geen typefouten in de bedragen staan."
+		highlightOwnFunds: " Je hebt een eigen vermogen ingevuld dat meer dan 50% van de waarde van je onroerend goed dekt, controleer of er geen typefouten in de bedragen staan.",
+		disclaimerTopHC:
+		"Op basis van je gegevens kan onze makelaarspartner, HypoConnect NV, onmiddellijk je <b>persoonlijke tarief</b> en <b>geschiktheid</b> berekenen bij 18 partnerkredietgevers. Door verder te gaan, ga je impliciet akkoord met het gebruik van je gegevens voor dit doel.",
+		disclaimerBottomHC:
+		"Deze webpagina, waarvoor HypoConnect NV verantwoordelijk is, wordt gehost door TopCompare Information Services Belgium BVBA."
 	}
 };
 
@@ -138,6 +148,17 @@ var checkExist = setInterval(function () {
 			$(".go-back-button.ng-scope").show();
 		}
 
+		// Apply HypoConnect branding
+		if (window.location.href.indexOf("step/4") + window.location.href.indexOf("step/5") + window.location.href.indexOf("step/6") > -1) {
+			$("body").addClass("hypoconnect");
+			if ($("#disclaimerHC").length == 0) {
+				$("[ng-switch-when='cgg-headline-description']").after('<span id="disclaimerHC" style="display: block; margin: -10px 0 20px 0">' + locales2[lang]["disclaimerTopHC"] + "<br></span>");
+			}
+			$("application-skip-link").text(locales2[lang]["disclaimerBottomHC"]);
+		} else {
+			$("body").removeClass("hypoconnect");
+		}
+
 		// Notify for LTV > 100% or if own funds >50% of propertyValue
 		if (window.location.href.indexOf("step/3") > -1 ) {
 			if ($("#highlightLTV").length == 0) $('input[name="ownFunds"]').parent().parent().parent().parent().after(highlightLTV);
@@ -175,15 +196,22 @@ var checkExist = setInterval(function () {
 		if (window.location.href.indexOf("pret-hypothecaire/tous/results") + window.location.href.indexOf("hypothecaire-lening/alle/results") > -1) {
 			$("body").addClass("hl-rt");
 
+			// Use the exclusivity banner to mark the HypoConnect products
 			if (!$("#eligible-products").hasClass("tc-touched") && $(".card-container").length) {
 				for (var i = 0; i < $(".card-container").length; i++) {
-					// make sure the remaining empty span box is not visible
-					$(".card-container").eq(i).find(".product-label").get(0).setAttribute("style", "background-color: transparent !important");
-					// hide the apply click button
-					$(".card-container").eq(i).find("button").hide();
-					/* // remove the eligibility score and text
-					$(".card-container").eq(i).find(".footer-container img").hide();
-					$(".card-container").eq(i).find(".footer-primary").hide(); */
+					if ($(".card-container").eq(i).find(".product-label:contains('Excl')").length) {
+						$(".card-container").eq(i).find(".banner-title.exclusive").text("HypoConnect");
+						$(".card-container").eq(i).find(".product-label:contains('Exclu')").text("HypoConnect");
+						$(".card-container").eq(i).find(".product-label:contains('HypoConnect')").parent().parent().addClass("hc");
+					} else {
+						// make sure the remaining empty span box is not visible
+						$(".card-container").eq(i).find(".product-label").get(0).setAttribute("style", "background-color: transparent !important");
+						// hide the apply click button
+						$(".card-container").eq(i).find("button").hide();
+						/* // remove the eligibility score and text
+						$(".card-container").eq(i).find(".footer-container img").hide();
+						$(".card-container").eq(i).find(".footer-primary").hide(); */
+					}
 				}
 
 				// Show sorry notice when no results found
