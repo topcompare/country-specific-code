@@ -175,22 +175,13 @@ var checkExist = setInterval(function () {
 		if (window.location.href.indexOf("pret-hypothecaire/tous/results") + window.location.href.indexOf("hypothecaire-lening/alle/results") > -1) {
 			$("body").addClass("hl-rt");
 
-			// Use the exclusivity banner to mark the HypoConnect products
 			if (!$("#eligible-products").hasClass("tc-touched") && $(".card-container").length) {
-				for (var i = 0; i < $(".card-container").length; i++) {
-					if ($(".card-container").eq(i).find(".product-label:contains('Excl')").length) {
-						$(".card-container").eq(i).find(".banner-title.exclusive").text("HypoConnect");
-						$(".card-container").eq(i).find(".product-label:contains('Exclu')").text("HypoConnect");
-						$(".card-container").eq(i).find(".product-label:contains('HypoConnect')").parent().parent().addClass("hc");
-					} else {
-						// make sure the remaining empty span box is not visible
-						$(".card-container").eq(i).find(".product-label").get(0).setAttribute("style", "background-color: transparent !important");
-						// hide the apply click button
-						$(".card-container").eq(i).find("button").hide();
-						/* // remove the eligibility score and text
-						$(".card-container").eq(i).find(".footer-container img").hide();
-						$(".card-container").eq(i).find(".footer-primary").hide(); */
-					}
+				// remove button from results in unknown section
+				var elements =  $('#unknown-eligibility-products .card-container');
+				for(var i = 0; i < elements.length; i++) {
+					elements.eq(i).find(".product-label").get(0).setAttribute("style", "background-color: transparent !important");
+					// hide the apply click button
+					elements.eq(i).find("button").hide();
 				}
 
 				// Show sorry notice when no results found
