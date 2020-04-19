@@ -86,30 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	$('#loan-tenure').keydown(function () {
 		tc_touched = true;
 	});
-
-	// Change logos on the front page
-	if (window.location.pathname == "/fr" || window.location.pathname == "/nl") {
-		$(".cc-provider__list").find("img").eq(4).attr("src", "/s3/belgium/topcompare.be/production/be/images/providerLogos/kbc.png");
-		$(".cc-provider__list").find("img").eq(8).attr("src", "/s3/belgium/topcompare.be/production/be/images/providerLogos/bpostBank.png");
-		$(".cc-provider__list a[href='/fr/fournisseurs/bnp-paribas-fortis']").attr("href", "/fr/fournisseurs/kbc");
-		$(".cc-provider__list a[href='/fr/fournisseurs/elantis']").attr("href", "/fr/fournisseurs/bpost-bank");
-		$(".cc-provider__list a[href='/nl/aanbieders/bnp-paribas-fortis']").attr("href", "/nl/aanbieders/kbc");
-		$(".cc-provider__list a[href='/nl/aanbieders/elantis']").attr("href", "/nl/aanbieders/bpost-bank");
-		$(".cc-provider__list").find("img").eq(4).prop("alt", "KBC");
-		$(".cc-provider__list").find("img").eq(8).prop("alt", "bpost bank");
-		// Add HL hero button to homepage and rename loans to consumer loans
-		if (lang == "fr") {
-			$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Prêts hypothécaires" id="hero-mg-btn" href="/fr/pret-hypothecaire"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Prêts hypothécaires"> </span> <span class="hero-item-txt">Prêts hypothécaires</span> </a> </li>');
-			$("#hero-pl-btn").find(".hero-item-txt").text("Prêts à tempérament");
-		}
-		if (lang == "nl") {
-			$(".outer.hero-btns-wrapper-5").prepend('<li class="hero-btn"> <a class="btn-trackable" ga-action="Front Page Buttons" ga-category="home.herobanner.ga.mg" ga-label="Hypothecaire leningen" id="hero-mg-btn" href="/nl/hypothecaire-lening"> <span class="icon-wrap"> <img src="/s3/belgium/topcompare.be/production/be/images/general/icon-mo.svg" alt="Hypothecaire leningen"> </span> <span class="hero-item-txt">Hypothecaire leningen</span> </a> </li>');
-			$("#hero-pl-btn").find(".hero-item-txt").text("Leningen op afbetaling");
-		}
-		// Remove TA hero button
-		$("#hero-ta-btn").parent().remove();
-
-	}
 }, false);
 
 var checkExist = setInterval(function () {
