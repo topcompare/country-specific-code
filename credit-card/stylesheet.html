@@ -1,215 +1,29 @@
 <style>
     /* --- Style to remove extra padding of the body and other containers outside the Free Content widget -- */
-
     body>.free-text {
         background-color: #155072;
     }
-
     body .free-text .container>.row {
         padding: 0;
     }
-
-    .container .top-banner__category {
-        display: none;
-    }
-
     /*Hides the title of the blue header*/
     .top-banner__heading-header {
         display: none;
-
     }
-
     body .free-text .container>.col-xs-12 {
         padding: 0;
     }
-
     body>.free-text>.container {
         padding-left: 0;
         padding-right: 0;
         overflow: hidden;
     }
-
     body>.free-text>.container>.row>.col-xs-12>.container-fluid {
         padding-right: 0;
         padding-left: 16px;
     }
 
-
-    /* --- GENERAL -- */
-    .container-ccwizard {
-        padding: 24px 0 8px 0;
-        background-image: url('https://s3-eu-central-1.amazonaws.com/ceg-blogassets/blog/fr_BE/wp-content/uploads/2019/06/17131947/be-ccwizard-bgimage-compressed-952.jpg');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position-y: bottom;
-        background-position-x: right;
-        height: 260px;
-    }
-
-    .container-buttons {
-        /* This makes the buttons to align in just one line */
-        display: flex;
-        justify-content: flex-start;
-        /* ------------------------------------------------ */
-        overflow: auto;
-        white-space: nowrap;
-        margin-left: 0;
-        height: auto;
-    }
-
-    .ccwizard-buttons-normal {
-        display: inline-block;
-        background-color: white;
-        border: 1px solid #979290;
-        border-radius: 3px;
-        box-shadow: inset 0 -4px 0 #dedcd9;
-        font-size: 16px;
-        font-weight: bold;
-        color: #6c6563;
-        max-width: 128px;
-        min-width: 128px;
-        height: 48px;
-        /* padding: 12px; */
-        white-space: normal;
-        margin-right: 16px;
-        margin-bottom: 16px;
-        line-height: 1em;
-    }
-
-    .ccwizard-buttons-selected {
-        display: block;
-        background-color: #56924b;
-        border: none;
-        border-radius: 3px;
-        box-shadow: inset 0 -4px 0 #56924b;
-        color: white;
-    }
-
-    .container-ccwizard p {
-        font-size: 16px !important;
-        font-weight: bold;
-        color: white;
-    }
-
-    .ccwizard-helpicon {
-        font-size: 23px;
-        margin-right: 8px;
-        cursor: pointer;
-    }
-
-    .title-container-desktop {
-        display: inline-flex;
-        color: white;
-    }
-
-    .title-container-desktop .title {
-        font-size: 24px !important;
-        margin-top: 0;
-    }
-
-    .ccwizard-marginright {
-        display: none;
-        background-color: #155072;
-        border: #155072;
-        width: 16px;
-    }
-
-    .ccwizard-nomarginright {
-        margin-right: 0 !important;
-    }
-
-
-    /* ----------- MOBILE SPECIFIC ----------- */
-
-    .title-container-mobile {
-        display: none;
-        color: white;
-        margin-bottom: 16px;
-    }
-
-    .container-ccwizard .title-container-mobile .title-mobile {
-        font-size: 16px !important;
-        text-decoration: underline;
-        margin: 0 8px 0 4px;
-    }
-
-    .hide-chevron {
-        display: none;
-    }
-
-
-    /* ----------- MEDIA QUERIES ----------- */
-    @media only screen and (max-device-width: 769px) {
-        .container-ccwizard {
-            background-image: none;
-            height: auto;
-        }
-
-        .ccwizard-helpicon {
-            margin-right: 2px;
-            font-size: 16px;
-        }
-
-        .ccwizard-nomarginright {
-            margin-right: 0 !important;
-        }
-
-        .ccwizard-marginright {
-            display: block;
-        }
-    }
-
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-        .title-container-mobile {
-            display: inline-flex;
-        }
-
-        .hide-chevron {
-            display: block;
-        }
-
-        .title-container-desktop {
-            display: none;
-        }
-
-        .container-ccwizard {
-            background-image: none;
-        }
-    }
-
-
     /* ----------- DLP CUSTOMISATIONS ----------- */
-    /* Filter position swap */
-    .filter-panel-container {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
-
-    .filter-panel-container hr:nth-of-type(2) {
-        -webkit-box-ordinal-group: 1;
-        -moz-box-ordinal-group: 1;
-        -ms-flex-order: 1;
-        -webkit-order: 1;
-        order: 1;
-    }
-
-    .filter-panel-container hr {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    /* Regain the space freed up */
-    .slider-set {
-        height: unset;
-    }
 
     /* Add missing € sign to input box and remove the labels from the slider */
     input[name="Annualfee"].filter-panel-input-box {
@@ -219,20 +33,10 @@
         background-position-x: 5px;
         padding-left: 20px;
     }
-
     .range-limit-container {
         visibility: hidden
     }
-
-    /* Add missing disabled apply buttons */
-    :lang(fr) .btn-primary-normal:disabled:before {
-        content: "Non disponible"
-    }
-
-    :lang(nl) .btn-primary-normal:disabled:before {
-        content: "Niet beschikbaar"
-    }
-
+  
     /* Allow custom sorting of filters. Sorted elements need to add the 'order' attribute */
     .filter-panel-wrapper>div>div:nth-child(10) {
         display: flex;
@@ -242,18 +46,15 @@
         -webkit-flex-direction: column;
         -ms-flex-direction: column;
     }
-
     /* Remove the bold from the bank labels */
     label.provider-switch-name {
         font-weight: normal;
         cursor: pointer;
     }
-
     /* Remove the first column as it contains the score */
     .metrics>div:nth-of-type(2) {
         display: none !important;
     }
-
     /*Make top banner transparant*/
     .top-banner {
         background: unset;
@@ -270,9 +71,7 @@
             display: none !important
         }
     }
-
     @media (max-width: 992px) {
-
         /* Make mobile filter button bigger and white */
         .generic-design .top-banner-icon {
             font-size: 40px;
@@ -283,32 +82,26 @@
             top: -40px;
         }
     }
-
     /* The vertical header title is appearing too big. Not sure why. Forcing it to be smaller */
     .top-banner__heading-header {
         font-size: 23px !important;
         font-weight: normal !important;
     }
-
     /* Style for the table of more details */
     .cc-more-details {
         width: 100%;
     }
-
     .cc-more-details td:nth-child(1) {
         width: 40%;
     }
-
     .cc-more-details td:nth-child(2) {
         width: 10%;
         text-align: right;
         padding-right: 2%;
     }
-
     .cc-more-details td:nth-child(3) {
         width: 50%;
     }
-
     .cc-more-details tr td {
         border-bottom: dotted 1px rgb(238, 238, 238);
         border-top: dotted 1px rgb(238, 238, 238);
