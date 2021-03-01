@@ -23,7 +23,7 @@
         padding-left: 16px;
     }
 
-    /* ----------- DLP CUSTOMISATIONS ----------- */
+    /* ----------- DLP RESULT TALBE WIDGET CUSTOMISATIONS ----------- */
 
     /* Add missing € sign to input box and remove the labels from the slider */
     input[name="Annualfee"].filter-panel-input-box {
@@ -55,11 +55,18 @@
     .metrics>div:nth-of-type(2) {
         display: none !important;
     }
-    /*Make top banner transparant*/
+    /* Make top banner transparant */
     .top-banner {
         background: unset;
     }
-
+    /* Remove the "we have found X products" heading */
+    .top-banner__heading {
+        display:none
+    }
+    /* Remove dark blue background in top bar */
+    .top-banner {
+        background: unset !important
+    }
     /* Make top-bar thinner */
     .generic-design .top-banner__category {
         visibility: hidden !important;
